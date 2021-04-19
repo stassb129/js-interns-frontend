@@ -1,0 +1,10 @@
+@import "src/scss/consts";
+
+.App{
+    background-color: $main_color;
+    witdh: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
