@@ -1,11 +1,29 @@
 import './App.scss';
-import LoginForm from "./components/Login-form/LoginForm";
+import {useState} from "react";
+import Map from "./components/Map/Map";
+import {getMapItems} from "./api/getMapItems";
+import MapContainer from "./components/Map/Map";
+
 
 function App() {
+    const [mapPoints, setMapPoints] = useState([])
+
     return (
         <div className="App">
 
-            <LoginForm/>
+            <button onClick={
+                async () => {
+                    const items = await getMapItems()
+                    setMapPoints(items)
+                }
+            }>Поставить точки
+            </button>
+
+
+
+                <Map mapPoints={mapPoints}/>
+
+
 
         </div>
     );
