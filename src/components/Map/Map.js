@@ -2,6 +2,7 @@ import {MapContainer, TileLayer, Marker, Popup, useMapEvents} from 'react-leafle
 import {getMapItems} from "../../api/getMapItems";
 import {useState} from "react";
 
+
 const DEFAULT_COORDS = [38.74995, -78.1095];
 
 function LocationMarkers() {
@@ -54,15 +55,6 @@ function Map({mapPoints}) {
                 url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
             />
 
-            {/*{*/}
-            {/*    mapPoints ? mapPoints.map(e => {*/}
-            {/*        return <Marker key={e._id} position={e.location}>*/}
-            {/*            <Popup>*/}
-            {/*                {e.listing.name}*/}
-            {/*            </Popup>*/}
-            {/*        </Marker>*/}
-            {/*    }) : null*/}
-            {/*}*/}
 
             <LocationMarkers pos={mapPoints}/>
 
