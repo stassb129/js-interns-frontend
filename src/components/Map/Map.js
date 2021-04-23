@@ -1,15 +1,31 @@
 import {MapContainer, TileLayer, Marker, Popup, useMapEvents} from 'react-leaflet';
+import {getMapItems} from "../../api/getMapItems";
 import {useState} from "react";
 
-function LocationMarkers({pos}) {
+const DEFAULT_COORDS = [38.74995, -78.1095];
+
+function LocationMarkers() {
+    const [mapMarkers, setMapMarkers] = useState(null)
+
+    const getMarkers = async (chords) => {
+        const data = await getMapItems(chords)
+        setMapMarkers(data)
+    }
 
     const map = useMapEvents({
-        click() {
-            map.flyTo(pos[0].location, map.getZoom())
+        click(e) {
+            // map.flyTo(pos[0].location, map.getZoom())
+            // console.log(e.latlng)
         },
+        moveend() {
+            // map.flyTo(pos[0].location, map.getZoom())
+            // console.log(map.getBounds())
+            getMarkers(map.getBounds())
+        }
+
     })
 
-    return pos ? pos.map(e => {
+    return mapMarkers ? mapMarkers.map(e => {
         return <Marker key={e._id} position={e.location}>
             <Popup>
                 {e.listing.name}
@@ -24,10 +40,8 @@ function Map({mapPoints}) {
 
     return (
         <MapContainer
-            center={
-                [38.74995, -78.1095]
-            }
-            zoom={6}
+            center={DEFAULT_COORDS}
+            zoom={15}
             attributionControl={true}
             zoomControl={true}
             doubleClickZoom={true}
