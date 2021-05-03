@@ -17,7 +17,7 @@ const mapItemsSlice = createSlice({
     },
     reducers: {},
     extraReducers: {
-        [fetchMapItems.pending]: (state, action) => {
+        [fetchMapItems.pending]: (state) => {
             state.items.status = 'loading'
         },
         [fetchMapItems.fulfilled]: (state, action) => {
