@@ -18,9 +18,12 @@ export const useValidation = (value, validations) => {
                 case 'isEmpty':
                     value ? setIsEmpty(false) : setIsEmpty(true)
                     break
+
+                default:
+                    break
             }
         }
-    }, [value])
+    }, [value, validations])
 
     useEffect(() => {
         if (isEmpty || minLengthError) {
