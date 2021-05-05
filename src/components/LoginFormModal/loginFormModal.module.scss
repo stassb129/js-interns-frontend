@@ -1,0 +1,42 @@
+@import "../../scss/consts";
+
+
+
+.title {
+  font-size: 2.6rem;
+  color: #454545;
+}
+
+.signUpTitle {
+  font-size: 1.1rem;
+  color: #282828;
+  font-weight: 500;
+
+  span {
+    color: #5b5b5b;
+  }
+
+  a {
+    color: $link_color;
+  }
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+
+  input[type="text"] {
+    @include login-input
+  }
+
+  input[type="password"] {
+    @include login-input
+  }
+
+  label{
+    color: #454545;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    transition: 0.2s all;
+  }
+}

@@ -1,0 +1,36 @@
+@import "../../scss/consts";
+
+.btn {
+  outline: none;
+  border: 0;
+  padding: 17px 0;
+  width: 100%;
+  text-align: center;
+  border-radius: $btn_radius;
+  color: white;
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: 0.6px;
+  background: $main_gradient;
+  display: block;
+  cursor: pointer;
+
+  &:hover {
+    animation: background 3s infinite alternate;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+    cursor: default;
+  }
+}
+
+@keyframes background {
+  50% {
+    box-shadow: 0 -200px 100px -100px $secondary_color inset;
+  }
+
+  100% {
+    box-shadow: 0 -200px 100px -100px $main_color inset;
+  }
+}

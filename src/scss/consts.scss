@@ -1,1 +1,32 @@
-$main_color: rgb(18, 205, 205);
+$main_color: #FF7083;
+$secondary_color: rgba(255, 132, 121, 1);
+$grey_color: #868686;
+$light_gray_color: #F3F3F3;
+$link_color: #7A6CF7;
+$btn_radius: 6px;
+$main_gradient: linear-gradient(90deg, rgba(255, 99, 138, 1) 0%, rgba(255, 132, 121, 1) 100%);
+$main_revers_gradient: linear-gradient(90deg, rgba(255, 132, 121, 1) 0%, rgba(255, 99, 138, 1) 100%);
+
+@mixin display-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin login-input {
+  margin: 20px 0;
+  font-size: 1.3rem;
+  padding: 20px 20px;
+  border-radius: $btn_radius;
+  outline: none;
+  background-color: $light_gray_color;
+  border: 2px solid rgba(0, 0, 0, 0);
+  transition: 0.2s all;
+
+  &:focus{
+    border: 2px solid #bfbfbf;
+  }
+  &::-webkit-input-placeholder{
+    color: #c4c4c4;
+  }
+}

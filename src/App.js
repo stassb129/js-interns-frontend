@@ -1,14 +1,22 @@
 import './App.scss';
-import Map from "./components/Map/Map";
+import {useState} from "react";
+import LoginFormModal from "./components/LoginFormModal/LoginFormModal";
 
 function App() {
     document.title = "Pinktada"
+    const [modalActive, setModalActive] = useState(false)
+
+    const modalHandler = () => {
+        setModalActive(true)
+    }
 
     return (
         <div className="App">
 
-            <Map />
+            <button onClick={modalHandler}>Открыть Модалчоку</button>
 
+            <LoginFormModal active={modalActive}
+                       setActive={setModalActive}/>
         </div>
     )
 }
