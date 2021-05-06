@@ -3,16 +3,21 @@ import Modal from "../Modal/Modal";
 import Button from "../Button/Button";
 import Delimiter from "../Delimiter/Delimiter";
 import {useInput} from "../../hooks/useInput";
-import {login} from "../../api/login";
+import {useDispatch, useSelector} from "react-redux";
+import {getToken} from "../../redux/authSlice";
+import Preloader from "../Preloader/Preloader";
 
 function LoginFormModal({active, setActive}) {
 
+    const loginStatus = useSelector((state) => state.auth.login.status)
+    const dispatch = useDispatch()
     const username = useInput('', {isEmpty: true})
     const password = useInput('', {isEmpty: true})
 
     const loginHandler = (username, password) => {
-        login(username, password)
+        dispatch(getToken({username, password}))
     }
+
 
     return (
         <Modal active={active}
@@ -53,14 +58,19 @@ function LoginFormModal({active, setActive}) {
                 click={() => loginHandler(username.value, password.value)}
                 disabled={!username.inputValid ||
                 !password.inputValid}>
-                Continue
+                {loginStatus === "loading" ?
+                    <Preloader/> :
+                    "Continue"}
             </Button>
+
+            {loginStatus === 'error' &&
+            <div style={{color: "red"}}> username or password is wrong!!!</div>}
 
             <Delimiter/>
 
             <div className={css.signUpTitle}>
                 <span>Don't have an account? </span>
-                <a>Sign up hear!</a>
+                <a href="/#">Sign up hear!</a>
             </div>
 
         </Modal>

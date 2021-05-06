@@ -1,0 +1,52 @@
+@import "../../scss/consts";
+
+.parallax {
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  @include display-center;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #bffcff;
+    z-index: 8000;
+    mix-blend-mode: color-burn;
+  }
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    object-fit: cover;
+  }
+
+  .moon {
+    transition: 0.1s left;
+    z-index: 7;
+    width: auto;
+  }
+
+  .mountain {
+    transition: 0.2s top;
+    z-index: 8;
+  }
+  .road{
+    z-index: 10;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 50px;
+    z-index: 10000;
+  }
+}

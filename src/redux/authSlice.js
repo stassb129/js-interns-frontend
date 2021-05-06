@@ -1,13 +1,13 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {login} from "../api/login";
+import {login} from "../api/auth";
 
 
-export const getToken = createAsyncThunk('login/fetchingMapItems', (username, password) => {
-    return login(username, password)
+export const getToken = createAsyncThunk('auth/fetchingToken', (user) => {
+    return login(user.username, user.password)
 })
 
 const authSlice = createSlice({
-    name: 'login',
+    name: 'auth',
     initialState: {
         login: {
             status: '',
@@ -24,17 +24,19 @@ const authSlice = createSlice({
         [getToken.fulfilled]: (state, action) => {
             state.login = {
                 status: 'done',
-                data: action.payload,
+                token: action.payload.access_token,
+                isLogin: true,
                 error: {}
             }
-
+            localStorage.setItem('token', action.payload.access_token)
         },
         [getToken.rejected]: (state, action) => {
             state.login = {
                 status: 'error',
-                data: null,
-                error: action.payload,
+                isLogin: false,
+                error: action.error
             }
+            localStorage.removeItem('token')
         }
     }
 })

@@ -1,22 +1,30 @@
 import './App.scss';
-import {useState} from "react";
-import LoginFormModal from "./components/LoginFormModal/LoginFormModal";
+import './fontello/css/fontello.css'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
+import HomesPage from "./pages/HomesPage/HomesPage";
 
 function App() {
     document.title = "Pinktada"
-    const [modalActive, setModalActive] = useState(false)
 
-    const modalHandler = () => {
-        setModalActive(true)
-    }
 
     return (
         <div className="App">
+            <Router>
+                <Switch>
+                    <Route path="/homes">
+                        <HomesPage/>
+                    </Route>
 
-            <button onClick={modalHandler}>Открыть Модалчоку</button>
-
-            <LoginFormModal active={modalActive}
-                       setActive={setModalActive}/>
+                    <Route path="/">
+                        <WelcomePage/>
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     )
 }
