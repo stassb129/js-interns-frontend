@@ -1,28 +1,30 @@
 import './App.scss';
-import {useEffect, useState} from "react";
-import LoginFormModal from "./components/LoginFormModal/LoginFormModal";
-import {useSelector} from "react-redux";
+import './fontello/css/fontello.css'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
+import HomesPage from "./pages/HomesPage/HomesPage";
 
 function App() {
     document.title = "Pinktada"
-    const [modalActive, setModalActive] = useState(false)
-    const loginStatus = useSelector((state) => state.auth.login.status)
 
-    useEffect(() => {
-        loginStatus === 'done' && setModalActive(false)
-    }, [loginStatus])
-
-    const modalHandler = () => {
-        setModalActive(true)
-    }
 
     return (
         <div className="App">
+            <Router>
+                <Switch>
+                    <Route path="/homes">
+                        <HomesPage/>
+                    </Route>
 
-            <button onClick={modalHandler}>Открыть Модалчоку</button>
-
-            <LoginFormModal active={modalActive}
-                            setActive={setModalActive}/>
+                    <Route path="/">
+                        <WelcomePage/>
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     )
 }
