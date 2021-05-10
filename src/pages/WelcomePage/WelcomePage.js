@@ -1,7 +1,7 @@
 import css from './welcomePage.module.scss';
 import WelcomeParallax from "../../components/WelcomeParallax/WelcomeParallax";
 import Header from "../../components/global/Header/Header";
-import SelectPanel from "../../components/SelectPanel/SelectPanel";
+// import SelectPanel from "../../components/SelectPanel/SelectPanel";
 import Button from "../../components/Button/Button";
 import hotel1 from '../../images/hotels/1.jpg'
 import hotel2 from '../../images/hotels/2.jpg'
@@ -17,7 +17,7 @@ const WelcomePage = () => {
 
                 <WelcomeParallax>
                     <Header/>
-                    <SelectPanel/>
+                    {/*<SelectPanel/>*/}
 
                     <div className={css.description}>
                         <span>Discover rooms,</span>
