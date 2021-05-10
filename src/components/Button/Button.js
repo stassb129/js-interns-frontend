@@ -1,10 +1,10 @@
 import css from './button.module.scss'
 
-const Button = ({children, disabled, click}) => {
+const Button = ({children, disabled, click, style}) => {
     return (
         <button disabled={disabled}
                 onClick={click}
-                className={css.btn}>
+                className={`${css.btn} ${style}`}>
             {children}
         </button>
     );

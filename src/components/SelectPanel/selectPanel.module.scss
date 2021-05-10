@@ -1,0 +1,40 @@
+@import "../../scss/consts";
+
+.selectPanel {
+  background-color: white;
+  border-radius: 10px;
+  margin: 60px auto;
+  width: 60%;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+
+  .searchBtn {
+    width: 9%;
+    align-self: center;
+  }
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: black;
+  font-size: 1.2rem;
+  width: 20%;
+
+  .icon {
+    color: $grey_color;
+  }
+
+  .description {
+    span {
+      color: #3b3b3b;
+    }
+
+    div {
+      color: $grey_color;
+      font-size: 0.9rem;
+    }
+  }
+}

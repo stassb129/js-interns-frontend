@@ -43,3 +43,8 @@ $main_revers_gradient: linear-gradient(90deg, rgba(255, 132, 121, 1) 0%, rgba(25
     color: #c4c4c4;
   }
 }
+
+@mixin container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}

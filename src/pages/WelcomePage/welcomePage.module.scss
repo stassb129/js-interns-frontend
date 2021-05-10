@@ -10,12 +10,13 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  bottom: 25%;
+  bottom: 15%;
   left: 10%;
 
   span {
     width: fit-content;
     font-weight: bold;
+    padding: 0 5px;
   }
 
   span:nth-child(1) {
@@ -56,6 +57,7 @@
   overflow: hidden;
   border-radius: 10px;
   cursor: pointer;
+
   &:hover {
     .itemPicture {
       transform: scale(1.2);
@@ -73,12 +75,11 @@
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 1370px) {
   .description {
     font-size: 2.5rem;
-    bottom: 5%;
   }
-  .topItem{
+  .topItem {
     height: 350px;
   }
 }

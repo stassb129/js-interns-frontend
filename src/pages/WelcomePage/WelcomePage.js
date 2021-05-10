@@ -3,10 +3,11 @@ import WelcomeParallax from "../../components/WelcomeParallax/WelcomeParallax";
 import Header from "../../components/global/Header/Header";
 // import SelectPanel from "../../components/SelectPanel/SelectPanel";
 import Button from "../../components/Button/Button";
-import hotel1 from '../../images/hotels/1.jpg'
-import hotel2 from '../../images/hotels/2.jpg'
-import hotel3 from '../../images/hotels/3.jpg'
-import hotel4 from '../../images/hotels/4.jpg'
+import SelectPanel from "../../components/SelectPanel/SelectPanel";
+// import hotel1 from '../../images/hotels/1.jpg'
+// import hotel2 from '../../images/hotels/2.jpg'
+// import hotel3 from '../../images/hotels/3.jpg'
+// import hotel4 from '../../images/hotels/4.jpg'
 
 
 const WelcomePage = () => {
@@ -17,7 +18,7 @@ const WelcomePage = () => {
 
                 <WelcomeParallax>
                     <Header/>
-                    {/*<SelectPanel/>*/}
+                    <SelectPanel/>
 
                     <div className={css.description}>
                         <span>Discover rooms,</span>
@@ -29,22 +30,22 @@ const WelcomePage = () => {
                 <section className={css.topRatedSection}>
                     <h3>Top Rated</h3>
                     <div className={css.topRated}>
-                        <div className={css.topItem}>
-                            <div style={{backgroundImage: `url(${hotel1})`}}
-                                 className={css.itemPicture}></div>
-                        </div>
-                        <div className={css.topItem}>
-                            <div style={{backgroundImage: `url(${hotel2})`}}
-                                 className={css.itemPicture}></div>
-                        </div>
-                        <div className={css.topItem}>
-                            <div style={{backgroundImage: `url(${hotel3})`}}
-                                 className={css.itemPicture}></div>
-                        </div>
-                        <div className={css.topItem}>
-                            <div style={{backgroundImage: `url(${hotel4})`}}
-                                 className={css.itemPicture}></div>
-                        </div>
+                        {/*<div className={css.topItem}>*/}
+                        {/*    <div style={{backgroundImage: `url(${hotel1})`}}*/}
+                        {/*         className={css.itemPicture}></div>*/}
+                        {/*</div>*/}
+                        {/*<div className={css.topItem}>*/}
+                        {/*    <div style={{backgroundImage: `url(${hotel2})`}}*/}
+                        {/*         className={css.itemPicture}></div>*/}
+                        {/*</div>*/}
+                        {/*<div className={css.topItem}>*/}
+                        {/*    <div style={{backgroundImage: `url(${hotel3})`}}*/}
+                        {/*         className={css.itemPicture}></div>*/}
+                        {/*</div>*/}
+                        {/*<div className={css.topItem}>*/}
+                        {/*    <div style={{backgroundImage: `url(${hotel4})`}}*/}
+                        {/*         className={css.itemPicture}></div>*/}
+                        {/*</div>*/}
                     </div>
                 </section>
 

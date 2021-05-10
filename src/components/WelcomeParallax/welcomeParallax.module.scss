@@ -5,6 +5,7 @@
   overflow: hidden;
   height: 100vh;
   position: relative;
+
   @include display-center;
 
   &:after {
@@ -16,6 +17,16 @@
     background: #bffcff;
     z-index: 8000;
     mix-blend-mode: color-burn;
+  }
+
+  &:before {
+    box-shadow: inset 0 0 85px rgba(0, 0, 0, 0.4);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
   }
 
   img {
@@ -38,7 +49,8 @@
     transition: 0.2s top;
     z-index: 8;
   }
-  .road{
+
+  .road {
     z-index: 10;
   }
 
