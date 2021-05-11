@@ -41,8 +41,9 @@
   font-weight: 500;
 }
 
-.topRatedSection {
-  margin: 80px 0;
+section {
+  margin: 10px 0;
+  padding: 60px 0;
 }
 
 .topRated {
@@ -71,6 +72,82 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+  }
+}
+
+.citiesSection {
+  background-color: #53bae5;
+
+  .sectionHeader {
+    color: white;
+  }
+}
+
+.gridMajorCities {
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 60px 30px;
+  grid-template-areas:
+    "los_angeles miami houston new_york"
+    "sun_francisco sun_francisco houston new_york";
+
+  div {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 6px 7px 12px #666666;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    &:after {
+      color: white;
+      position: absolute;
+      font-weight: 400;
+      font-size: 1.5rem;
+      bottom: -40px;
+      left: 0;
+    }
+  }
+}
+
+.sun_francisco {
+  grid-area: sun_francisco;
+  height: 200px;
+  &:after{
+    content: 'Sun Francisco';
+  }
+}
+
+.houston {
+  grid-area: houston;
+  height: 100%;
+  &:after{
+    content: 'Houston';
+  }
+}
+
+.los_angeles {
+  grid-area: los_angeles;
+  height: 200px;
+  &:after{
+    content: 'Los Angeles';
+  }
+}
+
+.miami {
+  grid-area: miami;
+  height: 200px;
+  &:after{
+    content: 'Miami';
+  }
+}
+
+.new_york {
+  grid-area: new_york;
+  height: 100%;
+  &:after{
+    content: 'New York';
   }
 }
 
