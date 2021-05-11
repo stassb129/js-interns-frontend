@@ -1,6 +1,7 @@
 import css from './selectPanel.module.scss'
 import CustomDatePicker from "../CustomDatePicker/CustomDatePicker"
 import Button from "../Button/Button"
+import {Link} from "react-router-dom";
 
 
 const Select = ({title, icon, children}) => {
@@ -35,8 +36,11 @@ const SelectPanel = () => {
                 Select Type
             </Select>
 
+
             <Button style={css.searchBtn}>
-                <i className="icon-search"></i>
+                <Link to="/homes">
+                    <i className="icon-search"></i>
+                </Link>
             </Button>
         </div>
     )

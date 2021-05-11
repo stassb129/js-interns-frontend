@@ -19,10 +19,23 @@ code {
 }
 
 
-
 .leaflet-container {
-  height: 400px;
-  width: 800px;
+  height: 100%;
+  width: 100%;
 }
 
+a {
+  color: white;
+}
+
+::-webkit-scrollbar { /* 1 - скроллбар */
+  width: 10px;
+  height: 10px;
+  background-color: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb { /* 5 - ползунок */
+  border-radius: 3px;
+  background-color: #cdcdcd;
+}
 

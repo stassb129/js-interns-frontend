@@ -12,6 +12,7 @@
 .icon-star:before { content: '\e80a'; } /* '' */
 .icon-heart-empty:before { content: '\e80b'; } /* '' */
 .icon-heart:before { content: '\e80c'; } /* '' */
+.icon-user:before { content: '\e80d'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-youtube:before { content: '\f167'; } /* '' */

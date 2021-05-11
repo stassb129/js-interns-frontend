@@ -1,3 +1,24 @@
-.home{
+.homesPage {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.2fr 1.8fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header header"
+    "placesNear map";
+}
 
+.header {
+  grid-area: header;
+}
+
+.placesNear {
+  grid-area: placesNear;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.map {
+  grid-area: map;
 }

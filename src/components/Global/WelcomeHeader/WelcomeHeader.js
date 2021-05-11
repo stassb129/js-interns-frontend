@@ -1,11 +1,11 @@
-import css from './header.module.scss'
+import css from './welcomeHeader.module.scss'
 import {Link} from "react-router-dom";
 import Button from "../../Button/Button";
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import LoginFormModal from "../../LoginFormModal/LoginFormModal";
 
-const Header = () => {
+const WelcomeHeader = () => {
     const loginStatus = useSelector(state => state.auth.login.status)
     const isLogin = useSelector(state => state.auth.login.isLogin)
     const [loginModalActive, setLoginModalActive] = useState(false)
@@ -35,10 +35,10 @@ const Header = () => {
                     <Link to=''>Contact</Link>
                 </li>
                 <li>
-                    <Button style={`${css.findBtn} ${css.btn}`}>
-                        <i className="icon-search"></i>
-                        Find Nearby
-                    </Button>
+                        <Button style={`${css.findBtn} ${css.btn}`}>
+                            <i className="icon-search"></i>
+                            Find Nearby
+                        </Button>
                 </li>
                 <li>
                     {
@@ -56,4 +56,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default WelcomeHeader;
