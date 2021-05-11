@@ -1,6 +1,6 @@
 import css from './selectPanel.module.scss'
-import CustomDatePicker from "../CustomDatePicker/CustomDatePicker";
-import Button from "../Button/Button";
+import CustomDatePicker from "../CustomDatePicker/CustomDatePicker"
+import Button from "../Button/Button"
 
 
 const Select = ({title, icon, children}) => {
@@ -8,8 +8,8 @@ const Select = ({title, icon, children}) => {
         <div className={css.select}>
             <i className={`${icon} ${css.icon}`}></i>
             <div className={css.description}>
-                <span>{title}</span>
-                <div>{children}</div>
+                <span className={css.title}>{title}</span>
+                <div className={css.child}>{children}</div>
             </div>
         </div>
     )
@@ -42,4 +42,4 @@ const SelectPanel = () => {
     )
 }
 
-export default SelectPanel;
+export default SelectPanel

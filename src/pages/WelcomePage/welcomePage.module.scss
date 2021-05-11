@@ -1,6 +1,6 @@
 @import "../../scss/consts";
 
-.welcome {
+.welcomePage {
 
 }
 
@@ -35,14 +35,14 @@
   }
 }
 
+.sectionHeader {
+  margin: 20px 40px;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
 .topRatedSection {
   margin: 80px 0;
-
-  h3 {
-    margin: 20px 40px;
-    font-size: 2.5rem;
-    font-weight: 500;
-  }
 }
 
 .topRated {
@@ -87,5 +87,7 @@
 @media (max-width: 1000px) {
   .description {
     position: relative;
+    font-size: 2rem;
+    bottom: 0;
   }
 }

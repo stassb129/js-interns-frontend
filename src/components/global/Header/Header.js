@@ -1,8 +1,24 @@
 import css from './header.module.scss'
 import {Link} from "react-router-dom";
 import Button from "../../Button/Button";
+import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import LoginFormModal from "../../LoginFormModal/LoginFormModal";
 
 const Header = () => {
+    const loginStatus = useSelector(state => state.auth.login.status)
+    const isLogin = useSelector(state => state.auth.login.isLogin)
+    const [loginModalActive, setLoginModalActive] = useState(false)
+
+    useEffect(() => {
+        if (loginStatus === 'done') {
+            setLoginModalActive(false)
+        }
+    }, [loginStatus])
+
+    const loginModalHandler = () => {
+        setLoginModalActive(!loginModalActive)
+    }
     return (
         <header className={css.header}>
             <ul>
@@ -19,17 +35,23 @@ const Header = () => {
                     <Link to=''>Contact</Link>
                 </li>
                 <li>
-                    <Button style={css.findBtn}>
+                    <Button style={`${css.findBtn} ${css.btn}`}>
                         <i className="icon-search"></i>
                         Find Nearby
                     </Button>
                 </li>
                 <li>
-                    <Button>
-                        Sign in
-                    </Button>
+                    {
+                        !isLogin &&
+                        <Button style={css.btn} click={loginModalHandler}>
+                            Sign in
+                        </Button>
+                    }
                 </li>
             </ul>
+
+            <LoginFormModal active={loginModalActive}
+                            setActive={setLoginModalActive}/>
         </header>
     );
 };

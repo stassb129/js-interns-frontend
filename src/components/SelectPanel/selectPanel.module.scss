@@ -28,13 +28,24 @@
   }
 
   .description {
-    span {
+    .title {
       color: #3b3b3b;
     }
 
-    div {
+    .child {
       color: $grey_color;
       font-size: 0.9rem;
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .selectPanel{
+    width: 70%;
+  }
+}
+@media (max-width: 1000px) {
+  .selectPanel{
+    width: 80%;
   }
 }
