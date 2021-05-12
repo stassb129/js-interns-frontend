@@ -2,9 +2,10 @@ import 'leaflet/dist/leaflet.css'
 import './markers.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {Marker, Popup, useMapEvents} from "react-leaflet";
-import {fetchMapItems} from "../../redux/mapItemsSlice";
+import {fetchMapItems, setCoords} from "../../redux/mapItemsSlice";
 import {divIcon} from "leaflet";
 import {useEffect} from "react";
+
 
 function LocationMarkers() {
     const mapMarkers = useSelector(state => state.mapItems.items)
@@ -13,11 +14,13 @@ function LocationMarkers() {
     const map = useMapEvents({
         moveend() {
             dispatch(fetchMapItems(map.getBounds()))
+            dispatch(setCoords(map.getBounds()))
         }
     })
 
     useEffect(() => {
         dispatch(fetchMapItems(map.getBounds()))
+        dispatch(setCoords(map.getBounds()))
     }, [])
 
     const icon = divIcon({

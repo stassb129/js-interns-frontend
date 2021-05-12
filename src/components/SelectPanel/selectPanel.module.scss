@@ -10,7 +10,8 @@
   justify-content: space-around;
 
   .searchBtn {
-    width: 9%;
+    width: 5%;
+    padding:10px 5px;
     align-self: center;
   }
 }
@@ -25,6 +26,7 @@
 
   .icon {
     color: $grey_color;
+    font-size: 2rem;
   }
 
   .description {

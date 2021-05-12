@@ -1,13 +1,29 @@
 import css from './placeItem.module.scss'
 
-const PlaceItem = () => {
+const PlaceItem = ({picture, title, price, rating, isAvailable, description, rateCount}) => {
     return (
         <div className={css.placeItem}>
-               <h1>
-                   placeItem
-               </h1>
-        </div>
-    );
-};
+            <div className={css.picture}
+                 style={{backgroundImage: `url('${picture}')`}}>
+            </div>
+            <div className={css.description}>
+                <h3 className={css.title}>{title}</h3>
+                <span className={css.isAvailable}>{isAvailable}</span>
+                <p className={css.littleDesc}>
+                    {description}
+                </p>
+            </div>
 
-export default PlaceItem;
+            <div className={css.price}>
+                <span className={css.rating}>
+                   <i className="icon-star"></i>
+                    {rating}
+                    <span>({rateCount})</span>
+                </span>
+                <span className={css.dollars}>{price}</span>
+            </div>
+        </div>
+    )
+}
+
+export default PlaceItem

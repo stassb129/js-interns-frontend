@@ -61,7 +61,7 @@ section {
 
   &:hover {
     .itemPicture {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   }
 
@@ -100,6 +100,7 @@ section {
     background-position: center;
     background-size: cover;
     position: relative;
+
     &:after {
       color: white;
       position: absolute;
@@ -111,10 +112,15 @@ section {
   }
 }
 
+@mixin cityHeight {
+  height: 300px;
+}
+
 .sun_francisco {
   grid-area: sun_francisco;
-  height: 200px;
-  &:after{
+  @include cityHeight;
+
+  &:after {
     content: 'Sun Francisco';
   }
 }
@@ -122,23 +128,26 @@ section {
 .houston {
   grid-area: houston;
   height: 100%;
-  &:after{
+
+  &:after {
     content: 'Houston';
   }
 }
 
 .los_angeles {
   grid-area: los_angeles;
-  height: 200px;
-  &:after{
+  @include cityHeight;
+
+  &:after {
     content: 'Los Angeles';
   }
 }
 
 .miami {
   grid-area: miami;
-  height: 200px;
-  &:after{
+  @include cityHeight;
+
+  &:after {
     content: 'Miami';
   }
 }
@@ -146,7 +155,8 @@ section {
 .new_york {
   grid-area: new_york;
   height: 100%;
-  &:after{
+
+  &:after {
     content: 'New York';
   }
 }
