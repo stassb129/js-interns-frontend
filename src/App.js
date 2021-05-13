@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import HomesPage from "./pages/HomesPage/HomesPage";
+import ViewPage from "./pages/ViewPage/ViewPage";
 
 function App() {
     document.title = "Pinktada"
@@ -16,6 +17,10 @@ function App() {
         <div className="App">
             <Router>
                 <Switch>
+                    <Route path="/view/:id">
+                        <ViewPage/>
+                    </Route>
+
                     <Route path="/homes">
                         <HomesPage/>
                     </Route>

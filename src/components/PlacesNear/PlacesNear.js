@@ -22,7 +22,7 @@ const PlacesNear = ({scrollPage}) => {
     useEffect(() => {
         scrollPage.current.addEventListener('scroll', scrollHandler)
         return () => {
-            scrollPage.current.removeEventListener("scroll", scrollHandler)
+            // scrollPage.current.removeEventListener("scroll", scrollHandler)
         }
     }, [])
 
@@ -44,6 +44,7 @@ const PlacesNear = ({scrollPage}) => {
             {placesData && placesData.data && placesData.data.map((e) => {
                 return <PlaceItem
                     key={e._id}
+                    id={e._id}
                     title={e.listing.name}
                     description={e.listing.kickerContent.messages}
                     isAvailable="Available"
