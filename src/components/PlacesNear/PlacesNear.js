@@ -1,21 +1,38 @@
 import css from './placesNear.module.scss'
 import PlaceItem from "../PlaceItem/PlaceItem";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {fetchPlaces} from "../../redux/placesSlice";
+import {useEffect, useMemo, useState} from "react";
+import {fetchNextPlaces} from "../../redux/placesSlice";
 
-const PlacesNear = () => {
+
+const PlacesNear = ({scrollPage}) => {
+
     const dispatch = useDispatch()
-    const coords = useSelector(state => state.mapItems.items.coords)
-    const mapItemsStatus = useSelector(state => state.mapItems.items.status)
-    const places = useSelector(state => state.places)
+    const placesData = useSelector(state => state.places.data)
+
+    const [fetch, setFetch] = useState(false)
 
 
     useEffect(() => {
-        if (mapItemsStatus === "done") {
-            dispatch(fetchPlaces(coords))
+        if (fetch) {
+            dispatch(fetchNextPlaces())
         }
-    }, [mapItemsStatus])
+    }, [fetch])
+
+    useEffect(() => {
+        scrollPage.current.addEventListener('scroll', scrollHandler)
+        return () => {
+            scrollPage.current.removeEventListener("scroll", scrollHandler)
+        }
+    }, [])
+
+    const scrollHandler = (e) => {
+        // console.log(e.target.scrollT)
+        if (e.target.scrollHeight - (e.target.scrollTop + window.innerHeight) < 100) {
+            setFetch(true)
+        } else setFetch(false)
+    }
+
 
     return (
         <div className={css.placesNear}>
@@ -24,7 +41,8 @@ const PlacesNear = () => {
                 <div>filters...</div>
             </div>
 
-            {places.data && places.status === "done" && places.data.map((e) => {
+            {console.log(placesData)}
+            {placesData && placesData.data && placesData.data.map((e) => {
                 return <PlaceItem
                     key={e._id}
                     title={e.listing.name}
@@ -36,7 +54,6 @@ const PlacesNear = () => {
                     price={e.pricingQuote.priceString}
                 />
             })}
-
         </div>
     )
 }

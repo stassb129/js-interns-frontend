@@ -5,6 +5,7 @@ import {Marker, Popup, useMapEvents} from "react-leaflet";
 import {fetchMapItems, setCoords} from "../../redux/mapItemsSlice";
 import {divIcon} from "leaflet";
 import {useEffect} from "react";
+import {fetchPlaces} from "../../redux/placesSlice";
 
 
 function LocationMarkers() {
@@ -13,14 +14,18 @@ function LocationMarkers() {
 
     const map = useMapEvents({
         moveend() {
-            dispatch(fetchMapItems(map.getBounds()))
-            dispatch(setCoords(map.getBounds()))
+            const bounds = map.getBounds();
+            dispatch(setCoords(bounds))
+            dispatch(fetchMapItems(bounds))
+            dispatch(fetchPlaces(bounds))
         }
     })
 
     useEffect(() => {
-        dispatch(fetchMapItems(map.getBounds()))
-        dispatch(setCoords(map.getBounds()))
+        const bounds = map.getBounds();
+        dispatch(setCoords(bounds))
+        dispatch(fetchMapItems(bounds))
+        dispatch(fetchPlaces(bounds))
     }, [])
 
     const icon = divIcon({
