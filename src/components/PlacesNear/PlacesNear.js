@@ -27,7 +27,6 @@ const PlacesNear = ({scrollPage}) => {
     }, [])
 
     const scrollHandler = (e) => {
-        // console.log(e.target.scrollT)
         if (e.target.scrollHeight - (e.target.scrollTop + window.innerHeight) < 100) {
             setFetch(true)
         } else setFetch(false)
