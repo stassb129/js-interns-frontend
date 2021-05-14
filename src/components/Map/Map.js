@@ -5,16 +5,21 @@ import LocationMarkers from "../LocationMarkers/LocationMarkers";
 import {useSelector} from "react-redux";
 import css from './map.module.scss';
 
-const DEFAULT_COORDS = [38.74995, -78.1095]
 
 function Map() {
     const markerStatus = useSelector(state => state.mapItems.items.status)
+    const centerCoords = useSelector(state => state.mapItems.items.centerCoords)
+    const zoom = useSelector(state => state.mapItems.items.zoom)
+
+    const DEFAULT_COORDS = centerCoords || [38.74995, -78.1095]
+    const ZOOM = zoom || 14
+
     return (
         <div className={css.map}>
             {markerStatus === 'loading' && <MapPreloader/>}
             <MapContainer
                 center={DEFAULT_COORDS}
-                zoom={15}
+                zoom={ZOOM}
                 attributionControl={true}
                 zoomControl={true}
                 doubleClickZoom={true}

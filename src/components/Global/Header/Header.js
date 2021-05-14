@@ -1,6 +1,7 @@
 import css from './header.module.scss'
 import logo from '../../../images/logo.png'
 import Button from "../../Button/Button";
+import {Link} from "react-router-dom";
 
 
 const HeaderSelect = () => {
@@ -21,7 +22,9 @@ const Header = () => {
     return (
         <header className={css.headerContainer}>
             <div className={css.header}>
-                <img src={logo} alt="" className={css.logo}/>
+                <Link to='/'>
+                    <img src={logo} alt="" className={css.logo}/>
+                </Link>
                 <HeaderSelect/>
                 <div className={css.profile}>
                     <i className="icon-user"></i>

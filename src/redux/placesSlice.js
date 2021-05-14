@@ -1,33 +1,55 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {getMapItems} from "../api/getMapItems";
 import {getPlaces} from "../api/getPlaces";
 
 
-export const fetchPlaces = createAsyncThunk('places/fetchingPlaces', (coords) => {
-    return getPlaces(coords)
+export const fetchPlaces = createAsyncThunk('places/fetchingPlaces', (param, thunkAPI) => {
+    const sort = thunkAPI.getState().places.sort
+    const coords = thunkAPI.getState().mapItems.items.coords
+
+    return getPlaces(coords, sort)
 })
 
 export const fetchNextPlaces = createAsyncThunk('places/fetchingNextPlaces', (param, thunkAPI) => {
     const currentPage = +thunkAPI.getState().places.currentPage + 1
     const coords = thunkAPI.getState().mapItems.items.coords
-    return getPlaces(coords, currentPage)
+    const sort = thunkAPI.getState().places.sort
+    return getPlaces(coords, sort, currentPage)
 })
 
 const placesSlice = createSlice({
     name: 'places',
     initialState: {
+        statusMapUpdate: '',
         status: '',
         currentPage: 1,
-        sort: {},
+        sort: {
+            upPrice: false,
+            downPrice: false,
+            upRate: false
+        },
         data: null,
         errors: {}
     },
-    reducers: {},
+    reducers: {
+        setSort(state, action) {
+            if (action.payload === 'upPrice') {
+                state.sort.upPrice = !state.sort.upPrice
+            }
+            if (action.payload === 'downPrice') {
+                state.sort.downPrice = !state.sort.downPrice
+            }
+            if (action.payload === 'upRate') {
+                state.sort.upRate = !state.sort.upRate
+            }
+        }
+    },
     extraReducers: {
         [fetchPlaces.pending]: (state) => {
             state.status = 'loading'
+            state.statusMapUpdate = 'loading'
         },
         [fetchPlaces.fulfilled]: (state, action) => {
+            state.statusMapUpdate = 'done'
             state.status = 'done'
             state.data = action.payload
             state.currentPage = 1
@@ -59,4 +81,5 @@ const placesSlice = createSlice({
     }
 })
 
+export const {setSort} = placesSlice.actions
 export default placesSlice.reducer

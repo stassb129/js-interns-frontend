@@ -1,16 +1,27 @@
 import css from './placesNear.module.scss'
 import PlaceItem from "../PlaceItem/PlaceItem";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useMemo, useState} from "react";
-import {fetchNextPlaces} from "../../redux/placesSlice";
+import {useEffect, useState} from "react";
+import {fetchNextPlaces, fetchPlaces, setSort} from "../../redux/placesSlice";
 
 
 const PlacesNear = ({scrollPage}) => {
 
     const dispatch = useDispatch()
     const placesData = useSelector(state => state.places.data)
-
+    const statusMapUpdate = useSelector(state => state.places.statusMapUpdate)
     const [fetch, setFetch] = useState(false)
+    const [isActive, setIsActive] = useState(false)
+
+
+    const sortHandler = (type, e) => {
+        if (e) {
+            e.target.style.color = 'red'
+        }
+        dispatch(setSort(type))
+        dispatch(fetchPlaces())
+    }
+
 
 
     useEffect(() => {
@@ -19,12 +30,10 @@ const PlacesNear = ({scrollPage}) => {
         }
     }, [fetch])
 
+
     useEffect(() => {
-        scrollPage.current.addEventListener('scroll', scrollHandler)
-        return () => {
-            // scrollPage.current.removeEventListener("scroll", scrollHandler)
-        }
-    }, [])
+        scrollPage.current.scrollTop = 0
+    }, [statusMapUpdate])
 
     const scrollHandler = (e) => {
         if (e.target.scrollHeight - (e.target.scrollTop + window.innerHeight) < 100) {
@@ -32,15 +41,41 @@ const PlacesNear = ({scrollPage}) => {
         } else setFetch(false)
     }
 
+    useEffect(() => {
+        scrollPage.current.addEventListener('scroll', scrollHandler)
+        return () => {
+            if (scrollPage.current) {
+                scrollPage.current.removeEventListener("scroll", scrollHandler)
+            }
+        }
+    }, [])
 
     return (
         <div className={css.placesNear}>
             <h3>Places to buy near you</h3>
             <div className={css.filters}>
-                <div>filters...</div>
+                <button onClick={(e) => {
+                    sortHandler('upPrice', e)
+                }}>
+                    Price
+                    <i className="icon-up-open"></i>
+                </button>
+
+                <button onClick={(e) => {
+                    sortHandler('downPrice', e)
+                }}>
+                    Price
+                    <i className="icon-down-open"></i>
+                </button>
+
+                <button onClick={(e) => {
+                    sortHandler('upRate', e)
+                }}>
+                    Rating
+                    <i className="icon-up-open"></i>
+                </button>
             </div>
 
-            {console.log(placesData)}
             {placesData && placesData.data && placesData.data.map((e) => {
                 return <PlaceItem
                     key={e._id}

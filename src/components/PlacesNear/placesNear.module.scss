@@ -9,5 +9,27 @@
 }
 
 .filters {
+  display: flex;
 
+  button {
+    margin: 0 15px;
+    padding: 5px 10px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 2px rgba(62, 192, 214, 0.51) solid;
+    background-color: white;
+    color: #3C3B43;
+    outline: 0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: 0.2s all;
+    &:hover {
+      background-color: rgba(62, 192, 214, 0.5);
+    }
+  }
+
+  .active {
+    background-color: #3ec0d6;
+    color: white;
+  }
 }
