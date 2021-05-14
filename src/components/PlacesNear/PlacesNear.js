@@ -23,7 +23,6 @@ const PlacesNear = ({scrollPage}) => {
     }
 
 
-
     useEffect(() => {
         if (fetch) {
             dispatch(fetchNextPlaces())
@@ -76,8 +75,8 @@ const PlacesNear = ({scrollPage}) => {
                 </button>
             </div>
 
-            {placesData && placesData.data && placesData.data.map((e) => {
-                return <PlaceItem
+            {placesData && placesData.data && placesData.data.map((e) => (
+                <PlaceItem
                     key={e._id}
                     id={e._id}
                     title={e.listing.name}
@@ -88,7 +87,7 @@ const PlacesNear = ({scrollPage}) => {
                     rateCount={e.listing.reviewsCount}
                     price={e.pricingQuote.priceString}
                 />
-            })}
+            ))}
         </div>
     )
 }
