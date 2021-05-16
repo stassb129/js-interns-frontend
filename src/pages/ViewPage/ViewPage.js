@@ -1,8 +1,9 @@
 import css from './viewPage.module.scss'
-import Header from "../../components/Global/Header/Header";
+import Header from "../../components/Global/Header/Header"
 import {Link, withRouter} from "react-router-dom"
-import {useEffect, useState} from "react";
-import {getPlaceById} from "../../api/getPlaceById";
+import {useEffect, useState} from "react"
+import {getPlaceById} from "../../api/getPlaceById"
+import CustomCarousel from "../../components/CustomCarousel/CustomCarousel"
 
 const ViewPage = ({match}) => {
 
@@ -18,40 +19,43 @@ const ViewPage = ({match}) => {
             <div className={css.content}>
 
                 <Link to="/homes">
-                    <i style={{color: "black", fontSize: "2rem"}} className="icon-left-open"></i>
+                    <i className={`icon-left-open ${css.goBack}`}></i>
                 </Link>
 
                 {
                     place && place.map(e => <div key={e._id}>
-                        <h3>{e.listing.name}</h3>
-                        <img src={e.listing.pictureUrl} alt=""/>
-                        <div>Rating: {e.listing.avgRating} <span>({e.listing.reviewsCount})</span></div>
 
+                        <div className={css.viewTitle}>
+                            <div className={css.title}>{e.listing.name}</div>
+                            <div className={css.littleDesc}>
+                                <div className={css.city}>
+                                    {e.listing.city}
+                                </div>
+                                <div className={css.superhost}>
+                                    superhost
+                                </div>
+                                <div className={css.reviews}>
+                                    <i className="icon-star"></i>
+                                    {e.listing.avgRating}
+                                    <span>({e.listing.reviewsCount} reviews)</span>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div className={css.veiwImages}>
+                            <img src={e.listing.pictureUrl} alt=""/>
+
+                        </div>
                     </div>)
                 }
-                {/*<div className={css.viewTitle}>*/}
-                {/*    <div className={css.title}>InterLoft 12 sat</div>*/}
-                {/*    <div className={css.littleDesc}>*/}
-                {/*        <div className={css.reviews}>*/}
-                {/*            <i className="icon-star"></i>*/}
-                {/*            5.0*/}
-                {/*            <span>(49 reviews)</span>*/}
-                {/*        </div>*/}
-                {/*        <div className={css.superhost}>*/}
-                {/*            superhost*/}
-                {/*        </div>*/}
-                {/*        <div className={css.city}>*/}
-                {/*            Minsk*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
+
+                {/*<CustomCarousel/>*/}
+
             </div>
 
-
         </div>
-    );
-};
+    )
+}
 
 
 export default withRouter(ViewPage)

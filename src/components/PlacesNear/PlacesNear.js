@@ -11,17 +11,31 @@ const PlacesNear = ({scrollPage}) => {
     const placesData = useSelector(state => state.places.data)
     const statusMapUpdate = useSelector(state => state.places.statusMapUpdate)
     const [fetch, setFetch] = useState(false)
-    const [isActive, setIsActive] = useState(false)
+
+    const [upPriceFilterActive, setUpPriceFilterActive] = useState(false)
+    const [downPriceFilterActive, setDownPriceFilterActive] = useState(false)
+    const [upRateFilterActive, setUpRateFilterActive] = useState(false)
 
 
-    const sortHandler = (type, e) => {
-        if (e) {
-            e.target.style.color = 'red'
-        }
+    const sortHandler = (type) => {
         dispatch(setSort(type))
         dispatch(fetchPlaces())
     }
 
+    const upPriceFilterHandler = () => {
+        setUpPriceFilterActive(!upPriceFilterActive)
+        sortHandler('upPrice')
+    }
+
+    const downPriceFilterHandler = () => {
+        setDownPriceFilterActive(!downPriceFilterActive)
+        sortHandler('downPrice')
+    }
+
+    const upRateFilterHandler = () => {
+        setUpRateFilterActive(!upRateFilterActive)
+        sortHandler('upRate')
+    }
 
     useEffect(() => {
         if (fetch) {
@@ -53,23 +67,20 @@ const PlacesNear = ({scrollPage}) => {
         <div className={css.placesNear}>
             <h3>Places to buy near you</h3>
             <div className={css.filters}>
-                <button onClick={(e) => {
-                    sortHandler('upPrice', e)
-                }}>
+                <button className={upPriceFilterActive && css.active}
+                        onClick={upPriceFilterHandler}>
                     Price
                     <i className="icon-up-open"></i>
                 </button>
 
-                <button onClick={(e) => {
-                    sortHandler('downPrice', e)
-                }}>
+                <button className={downPriceFilterActive && css.active}
+                        onClick={downPriceFilterHandler}>
                     Price
                     <i className="icon-down-open"></i>
                 </button>
 
-                <button onClick={(e) => {
-                    sortHandler('upRate', e)
-                }}>
+                <button className={upRateFilterActive && css.active}
+                        onClick={upRateFilterHandler}>
                     Rating
                     <i className="icon-up-open"></i>
                 </button>

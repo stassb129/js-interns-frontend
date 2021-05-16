@@ -1,5 +1,12 @@
+@import "../../scss/consts";
+
 .viewPage {
   background-color: #d7d7d7;
+}
+
+.goBack{
+  font-size: 2rem;
+
 }
 
 .content {
@@ -13,17 +20,34 @@
 }
 
 .title {
-
+  font-size: 2rem;
+  color: #262626;
+  margin: 15px 0;
+  font-weight: 500;
 }
 
 .littleDesc {
-
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .superhost {
 
 }
 
-.city {
+.reviews {
+  i {
+    color: $yellow_color;
+  }
 
+  span {
+    color: #a1a1a1;
+    font-size: 0.9rem;
+  }
+}
+
+.city {
+  color: #5b5b5b;
+  text-decoration: underline;
 }

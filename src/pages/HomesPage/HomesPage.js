@@ -3,6 +3,7 @@ import Header from "../../components/Global/Header/Header"
 import Map from "../../components/Map/Map";
 import PlacesNear from "../../components/PlacesNear/PlacesNear";
 import {useRef} from "react";
+import MyMap from "../../components/Map/Map";
 
 const HomesPage = () => {
     const ref = useRef()
@@ -16,7 +17,7 @@ const HomesPage = () => {
                 <PlacesNear scrollPage={ref}/>
             </div>
             <div className={css.map}>
-                <Map/>
+                <MyMap/>
             </div>
         </div>
     )

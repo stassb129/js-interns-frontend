@@ -16,20 +16,22 @@
     padding: 5px 10px;
     font-weight: 500;
     cursor: pointer;
-    border: 2px rgba(62, 192, 214, 0.51) solid;
+    border: 1px rgba(0, 0, 0, 0.4) solid;
     background-color: white;
     color: #3C3B43;
     outline: 0;
-    border-radius: 10px;
+    border-radius: 7px;
     font-size: 0.9rem;
     transition: 0.2s all;
     &:hover {
-      background-color: rgba(62, 192, 214, 0.5);
+      border: 1px #3ec0d6 solid;
     }
   }
 
   .active {
     background-color: #3ec0d6;
+    border: 1px #3ec0d6 solid;
     color: white;
+    font-weight: bold;
   }
 }
