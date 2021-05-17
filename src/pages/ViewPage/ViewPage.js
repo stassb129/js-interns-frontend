@@ -3,7 +3,6 @@ import Header from "../../components/Global/Header/Header"
 import {Link, withRouter} from "react-router-dom"
 import {useEffect, useState} from "react"
 import {getPlaceById} from "../../api/getPlaceById"
-import CustomCarousel from "../../components/CustomCarousel/CustomCarousel"
 
 const ViewPage = ({match}) => {
 
@@ -42,14 +41,40 @@ const ViewPage = ({match}) => {
                             </div>
                         </div>
 
-                        <div className={css.veiwImages}>
-                            <img src={e.listing.pictureUrl} alt=""/>
 
+                        <div className={css.imagesContainer}>
+                            <div style={{backgroundImage: `url(${e.listing.pictureUrl})`}} className={css.main}></div>
+
+                            <div style={{backgroundImage: `url(${e.listing.contextualPictures[1].picture})`}}>
+                            </div>
+
+                            <div style={{backgroundImage: `url(${e.listing.contextualPictures[2].picture})`}}>
+                            </div>
+
+                            <div style={{backgroundImage: `url(${e.listing.contextualPictures[3].picture})`}}>
+                            </div>
+
+                            <div style={{backgroundImage: `url(${e.listing.contextualPictures[4].picture})`}}>
+                            </div>
                         </div>
+
+                        <div className={css.about}>
+                            <div className={css.name}>
+                                <h3>{e.listing.kickerContent.messages} By {e.listing.user.firstName}</h3>
+                                <div className={css.aboutDescription}>
+                                    <span>{e.listing.guestLabel} · </span>
+                                    <span>{e.listing.bedrooms} bedroom · </span>
+                                    <span>{e.listing.beds} bed · </span>
+                                    <span>{e.listing.bathrooms} baths</span>
+                                </div>
+
+                            </div>
+                            <img className={css.hostPicture} src={e.listing.user.pictureUrl} alt=""/>
+                        </div>
+
+
                     </div>)
                 }
-
-                {/*<CustomCarousel/>*/}
 
             </div>
 
@@ -59,3 +84,13 @@ const ViewPage = ({match}) => {
 
 
 export default withRouter(ViewPage)
+
+//listing. badges[]
+//listing.bathrooms
+//listing.beds
+//listing.bedrooms
+//listing.guestLabel - guests
+//listing.hostThumbnailUrl
+//listing.user.firstName
+//listing.user.pictureUrl
+//listing.kickerContent.messages

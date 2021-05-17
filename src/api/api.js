@@ -1,16 +1,7 @@
-import axios from "axios";
+export const get = (url, params) => {
 
-const token = () => {
-    const token = localStorage.getItem('token')
-    if (token) {
-        return token
-    } else {
-        return ''
-    }
 }
 
-export const authAxios = axios.create({
-    headers: {
-        Authorization: `Bearer ${token()}`
-    }
-})
+export const post = () => {
+
+}
