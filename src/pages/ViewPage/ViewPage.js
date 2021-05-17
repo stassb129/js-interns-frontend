@@ -3,14 +3,27 @@ import Header from "../../components/Global/Header/Header"
 import {Link, withRouter} from "react-router-dom"
 import {useEffect, useState} from "react"
 import {getPlaceById} from "../../api/getPlaceById"
+import CustomCarousel from "../../components/CustomCarousel/CustomCarousel";
 
 const ViewPage = ({match}) => {
 
-    const [place, setPlace] = useState(null)
+    const [place, setPlace] = useState([])
+    const [images, setImages] = useState(null)
 
     useEffect(() => {
         getPlaceById(match.params.id).then(r => setPlace(r))
     }, [])
+
+
+    useEffect(() => {
+        if (place) {
+            const picMass = place.map((e) => e.listing.contextualPictures).map(e => e.map(e => e.picture))
+
+            const data = picMass[0] && picMass[0].map(e => e)
+            setImages(data)
+        }
+    }, [place])
+
 
     return (
         <div className={css.viewPage}>
@@ -42,21 +55,8 @@ const ViewPage = ({match}) => {
                         </div>
 
 
-                        <div className={css.imagesContainer}>
-                            <div style={{backgroundImage: `url(${e.listing.pictureUrl})`}} className={css.main}></div>
+                        {images && <CustomCarousel items={images}/>}
 
-                            <div style={{backgroundImage: `url(${e.listing.contextualPictures[1].picture})`}}>
-                            </div>
-
-                            <div style={{backgroundImage: `url(${e.listing.contextualPictures[2].picture})`}}>
-                            </div>
-
-                            <div style={{backgroundImage: `url(${e.listing.contextualPictures[3].picture})`}}>
-                            </div>
-
-                            <div style={{backgroundImage: `url(${e.listing.contextualPictures[4].picture})`}}>
-                            </div>
-                        </div>
 
                         <div className={css.about}>
                             <div className={css.name}>
