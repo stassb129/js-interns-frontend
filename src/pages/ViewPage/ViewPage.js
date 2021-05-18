@@ -4,25 +4,16 @@ import {Link, withRouter} from "react-router-dom"
 import {useEffect, useState} from "react"
 import {getPlaceById} from "../../api/getPlaceById"
 import CustomCarousel from "../../components/CustomCarousel/CustomCarousel";
+import Title from "../../components/ViewPageComponents/Title/Title";
+import About from "../../components/ViewPageComponents/About/About";
 
 const ViewPage = ({match}) => {
 
-    const [place, setPlace] = useState([])
-    const [images, setImages] = useState(null)
+    const [place, setPlace] = useState(null)
 
     useEffect(() => {
         getPlaceById(match.params.id).then(r => setPlace(r))
     }, [])
-
-
-    useEffect(() => {
-        if (place) {
-            const picMass = place.map((e) => e.listing.contextualPictures).map(e => e.map(e => e.picture))
-
-            const data = picMass[0] && picMass[0].map(e => e)
-            setImages(data)
-        }
-    }, [place])
 
 
     return (
@@ -34,54 +25,33 @@ const ViewPage = ({match}) => {
                     <i className={`icon-left-open ${css.goBack}`}></i>
                 </Link>
 
-                {
-                    place && place.map(e => <div key={e._id}>
+                {place &&
+                <Title
+                    name={place.listing.name}
+                    city={place.listing.city}
+                    rating={place.listing.avgRating}
+                    rateCount={place.listing.reviewsCount}
+                />}
 
-                        <div className={css.viewTitle}>
-                            <div className={css.title}>{e.listing.name}</div>
-                            <div className={css.littleDesc}>
-                                <div className={css.city}>
-                                    {e.listing.city}
-                                </div>
-                                <div className={css.superhost}>
-                                    superhost
-                                </div>
-                                <div className={css.reviews}>
-                                    <i className="icon-star"></i>
-                                    {e.listing.avgRating}
-                                    <span>({e.listing.reviewsCount} reviews)</span>
-                                </div>
-                            </div>
-                        </div>
+                {place &&
+                <CustomCarousel items={place.listing.contextualPictures.map(e => e.picture)}/>}
 
-
-                        {images && <CustomCarousel items={images}/>}
-
-
-                        <div className={css.about}>
-                            <div className={css.name}>
-                                <h3>{e.listing.kickerContent.messages} By {e.listing.user.firstName}</h3>
-                                <div className={css.aboutDescription}>
-                                    <span>{e.listing.guestLabel} · </span>
-                                    <span>{e.listing.bedrooms} bedroom · </span>
-                                    <span>{e.listing.beds} bed · </span>
-                                    <span>{e.listing.bathrooms} baths</span>
-                                </div>
-
-                            </div>
-                            <img className={css.hostPicture} src={e.listing.user.pictureUrl} alt=""/>
-                        </div>
-
-
-                    </div>)
-                }
+                {place &&
+                <About
+                    desc={place.listing.kickerContent.messages}
+                    guests={place.listing.guestLabel}
+                    hostName={place.listing.user.firstName}
+                    hostPicture={place.listing.user.pictureUrl}
+                    bathrooms={place.listing.bathrooms}
+                    bedrooms={place.listing.bedrooms}
+                    beds={place.listing.beds}
+                />}
 
             </div>
 
         </div>
     )
 }
-
 
 export default withRouter(ViewPage)
 

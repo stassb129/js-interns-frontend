@@ -1,0 +1,38 @@
+@import "../../../scss/consts";
+
+.viewTitle {
+
+}
+
+.title {
+  font-size: 2rem;
+  color: #262626;
+  font-weight: 500;
+}
+
+.littleDesc {
+  margin: 20px 0;
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.superhost {
+
+}
+
+.reviews {
+  i {
+    color: $yellow_color;
+  }
+
+  span {
+    color: #a1a1a1;
+    font-size: 0.9rem;
+  }
+}
+
+.city {
+  color: #5b5b5b;
+  text-decoration: underline;
+}
