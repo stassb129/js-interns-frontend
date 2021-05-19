@@ -1,11 +1,11 @@
 import css from './loginFormModal.module.scss'
-import Modal from "../Modal/Modal";
-import Button from "../Button/Button";
-import Delimiter from "../Delimiter/Delimiter";
+import Modal from "../modal/Modal";
+import Button from "../button/Button";
+import Delimiter from "../delimiter/Delimiter";
 import {useInput} from "../../hooks/useInput";
 import {useDispatch, useSelector} from "react-redux";
 import {getToken} from "../../redux/authSlice";
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../preloader/Preloader";
 
 function LoginFormModal({active, setActive}) {
 

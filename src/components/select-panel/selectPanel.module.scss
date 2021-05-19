@@ -11,7 +11,7 @@
 
   .searchBtn {
     width: 5%;
-    padding:10px 5px;
+    padding: 10px 5px;
     align-self: center;
   }
 }
@@ -41,13 +41,16 @@
   }
 }
 
+
+
 @media (max-width: 1200px) {
-  .selectPanel{
+  .selectPanel {
     width: 70%;
   }
 }
+
 @media (max-width: 1000px) {
-  .selectPanel{
+  .selectPanel {
     width: 80%;
   }
 }

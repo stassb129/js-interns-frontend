@@ -1,5 +1,5 @@
 import css from './placesNear.module.scss'
-import PlaceItem from "../PlaceItem/PlaceItem";
+import PlaceItem from "../place-item/PlaceItem";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {fetchNextPlaces, fetchPlaces, setSort} from "../../redux/placesSlice";

@@ -1,7 +1,7 @@
-import {MapContainer, TileLayer} from 'react-leaflet';
-import MarkerClusterGroup from "react-leaflet-markercluster/src/react-leaflet-markercluster";
-import MapPreloader from "../MapPreloader/MapPreloader";
-import LocationMarkers from "../LocationMarkers/LocationMarkers";
+import {MapContainer, Marker, TileLayer} from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+import MapPreloader from "../map-preloader/MapPreloader";
+import LocationMarkers from "../location-markers/LocationMarkers";
 import {useSelector} from "react-redux";
 import css from './map.module.scss';
 
@@ -30,9 +30,9 @@ function Map() {
             >
                 <TileLayer
                     url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    // url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                 />
+
 
                 <MarkerClusterGroup showCoverageOnHover={false}>
                     <LocationMarkers/>

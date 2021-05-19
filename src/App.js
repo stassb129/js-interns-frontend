@@ -6,9 +6,9 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import WelcomePage from "./pages/WelcomePage/WelcomePage";
-import HomesPage from "./pages/HomesPage/HomesPage";
-import ViewPage from "./pages/ViewPage/ViewPage";
+import WelcomePage from "./pages/welcome-page/WelcomePage";
+import HomesPage from "./pages/homes-page/HomesPage";
+import ViewPage from "./pages/view-page/ViewPage";
 
 function App() {
     document.title = "Pinktada"

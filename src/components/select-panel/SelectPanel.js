@@ -1,8 +1,9 @@
 import css from './selectPanel.module.scss'
-import CustomDatePicker from "../CustomDatePicker/CustomDatePicker"
-import Button from "../Button/Button"
+import CustomDatePicker from "../custom-date-picker/CustomDatePicker"
+import Button from "../button/Button"
 import {Link} from "react-router-dom";
-
+import React from "react";
+import SearchCities from "../search-cities/SearchCities";
 
 const Select = ({title, icon, children}) => {
     return (
@@ -21,7 +22,8 @@ const SelectPanel = () => {
         <div className={css.selectPanel}>
             <Select title="Location"
                     icon='icon-search'>
-                Enter Location
+
+                <SearchCities/>
             </Select>
             <Select title="Start date"
                     icon='icon-calendar'>

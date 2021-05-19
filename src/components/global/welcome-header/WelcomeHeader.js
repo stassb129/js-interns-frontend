@@ -1,9 +1,9 @@
 import css from './welcomeHeader.module.scss'
 import {Link} from "react-router-dom";
-import Button from "../../Button/Button";
+import Button from "../../button/Button";
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import LoginFormModal from "../../LoginFormModal/LoginFormModal";
+import LoginFormModal from "../../login-form-modal/LoginFormModal";
 
 const WelcomeHeader = () => {
     const loginStatus = useSelector(state => state.auth.login.status)

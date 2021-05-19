@@ -1,6 +1,6 @@
 import css from './header.module.scss'
 import logo from '../../../images/logo.png'
-import Button from "../../Button/Button";
+import Button from "../../button/Button";
 import {Link} from "react-router-dom";
 
 

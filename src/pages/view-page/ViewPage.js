@@ -1,11 +1,10 @@
 import css from './viewPage.module.scss'
-import Header from "../../components/Global/Header/Header"
+import Header from "../../components/global/header/Header"
 import {Link, withRouter} from "react-router-dom"
 import {useEffect, useState} from "react"
 import {getPlaceById} from "../../api/getPlaceById"
-import CustomCarousel from "../../components/CustomCarousel/CustomCarousel";
-import Title from "../../components/ViewPageComponents/Title/Title";
-import About from "../../components/ViewPageComponents/About/About";
+import Title from "../../components/view-page-components/title/Title";
+import About from "../../components/view-page-components/about/About";
 
 const ViewPage = ({match}) => {
 
@@ -33,8 +32,8 @@ const ViewPage = ({match}) => {
                     rateCount={place.listing.reviewsCount}
                 />}
 
-                {place &&
-                <CustomCarousel items={place.listing.contextualPictures.map(e => e.picture)}/>}
+                {/*{place &&*/}
+                {/*<custom-carousel items={place.listing.contextualPictures.map(e => e.picture)}/>}*/}
 
                 {place &&
                 <About

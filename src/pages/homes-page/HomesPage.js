@@ -1,9 +1,8 @@
 import css from './homesPage.module.scss'
-import Header from "../../components/Global/Header/Header"
-import Map from "../../components/Map/Map";
-import PlacesNear from "../../components/PlacesNear/PlacesNear";
+import Header from "../../components/global/header/Header"
+import PlacesNear from "../../components/places-near/PlacesNear";
 import {useRef} from "react";
-import MyMap from "../../components/Map/Map";
+import Map from "../../components/map/Map";
 
 const HomesPage = () => {
     const ref = useRef()
@@ -17,7 +16,7 @@ const HomesPage = () => {
                 <PlacesNear scrollPage={ref}/>
             </div>
             <div className={css.map}>
-                <MyMap/>
+                <Map/>
             </div>
         </div>
     )

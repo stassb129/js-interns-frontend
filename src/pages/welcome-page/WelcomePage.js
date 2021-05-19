@@ -1,9 +1,9 @@
 import css from './welcomePage.module.scss'
-import WelcomeParallax from "../../components/WelcomeParallax/WelcomeParallax"
-import WelcomeHeader from "../../components/Global/WelcomeHeader/WelcomeHeader"
-import Button from "../../components/Button/Button"
-import SelectPanel from "../../components/SelectPanel/SelectPanel"
-import Footer from "../../components/Global/Footer/Footer";
+import WelcomeParallax from "../../components/welcome-parallax/WelcomeParallax"
+import WelcomeHeader from "../../components/global/welcome-header/WelcomeHeader"
+import Button from "../../components/button/Button"
+import SelectPanel from "../../components/select-panel/SelectPanel"
+import Footer from "../../components/global/footer/Footer";
 
 import hotel1 from '../../images/hotels/1.jpeg'
 import hotel2 from '../../images/hotels/2.jpeg'

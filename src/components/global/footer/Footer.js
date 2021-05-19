@@ -1,7 +1,7 @@
 import css from './footer.module.scss'
 import {Link} from "react-router-dom";
-import Button from "../../Button/Button";
-import Delimiter from "../../Delimiter/Delimiter";
+import Button from "../../button/Button";
+import Delimiter from "../../delimiter/Delimiter";
 
 const Footer = () => {
     return (

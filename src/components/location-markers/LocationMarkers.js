@@ -9,7 +9,7 @@ import {fetchPlaces} from "../../redux/placesSlice";
 
 
 function LocationMarkers() {
-    const mapMarkers = useSelector(state => state.mapItems.items)
+    const mapMarkers = useSelector(state => state.mapItems.items.data)
     const dispatch = useDispatch()
 
 
@@ -45,12 +45,17 @@ function LocationMarkers() {
         iconAnchor: [15, 42]
     });
 
-    return mapMarkers.data && mapMarkers.data.map(e => {
-        return <Marker icon={icon} key={e._id} position={e.location}>
-            <Popup>
-                {e.listing.name}
-            </Popup>
-        </Marker>
+    // console.log(mapMarkers.data.length)
+
+    return mapMarkers && mapMarkers.map(e => {
+
+        return (
+            <Marker icon={icon} key={e._id} position={e.location}>
+                <Popup>
+                    {e.listing.name}
+                </Popup>
+            </Marker>
+        )
     })
 }
 
