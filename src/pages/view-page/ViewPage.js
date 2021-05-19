@@ -32,8 +32,24 @@ const ViewPage = ({match}) => {
                     rateCount={place.listing.reviewsCount}
                 />}
 
-                {/*{place &&*/}
-                {/*<custom-carousel items={place.listing.contextualPictures.map(e => e.picture)}/>}*/}
+
+                {/*<div className={css.imagesContainer}>*/}
+                {/*    <div style={{backgroundImage: `url(${e.listing.pictureUrl})`}} className={css.main}></div>*/}
+
+                {/*    <div style={{backgroundImage: `url(${e.listing.contextualPictures[1].picture})`}}>*/}
+                {/*    </div>*/}
+
+                {/*    <div style={{backgroundImage: `url(${e.listing.contextualPictures[2].picture})`}}>*/}
+                {/*    </div>*/}
+
+                {/*    <div style={{backgroundImage: `url(${e.listing.contextualPictures[3].picture})`}}>*/}
+                {/*    </div>*/}
+
+                {/*    <div style={{backgroundImage: `url(${e.listing.contextualPictures[4].picture})`}}>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+
 
                 {place &&
                 <About
