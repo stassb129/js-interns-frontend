@@ -23,8 +23,10 @@ const mapItemsSlice = createSlice({
         },
 
         setCenterCoords: (state, action) => {
-            state.items.centerCoords = action.payload.centerCoords
-            state.items.zoom = action.payload.zoom
+            if (action.payload !== null) {
+                state.items.centerCoords = action.payload.centerCoords
+                state.items.zoom = action.payload.zoom
+            }
         }
     },
     extraReducers: {

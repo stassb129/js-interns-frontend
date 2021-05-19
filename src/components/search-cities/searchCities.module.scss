@@ -5,19 +5,22 @@
 .cities {
   position: absolute;
   color: black;
-  bottom: -65px;
+  z-index: 10;
+  overflow-y: scroll;
+  max-height: 500px;
   left: 0;
   background-color: white;
   width: fit-content;
-  min-width: 100%;
+  padding: 0 !important;
 }
 
 .city {
   font-size: 1rem;
-  padding: 5px;
+  text-align: left;
+  padding: 10px;
 
   &:hover {
-    background-color: #d6d6d6;
+    background-color: #eaeaea;
     cursor: pointer;
     transition: 0.2s all;
   }

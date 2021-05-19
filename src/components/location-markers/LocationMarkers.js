@@ -6,10 +6,13 @@ import {fetchMapItems, setCenterCoords, setCoords} from "../../redux/mapItemsSli
 import {divIcon} from "leaflet";
 import {useEffect} from "react";
 import {fetchPlaces} from "../../redux/placesSlice";
+import {zoom} from "leaflet/src/control/Control.Zoom";
 
 
 function LocationMarkers() {
     const mapMarkers = useSelector(state => state.mapItems.items.data)
+    const mapCenterCoords = useSelector(state => state.mapItems.items.centerCoords)
+    const zoom = useSelector(state => state.mapItems.items.zoom)
     const dispatch = useDispatch()
 
 
@@ -21,6 +24,15 @@ function LocationMarkers() {
             dispatch(fetchPlaces())
         }
     })
+
+    useEffect(() => {
+        if (mapCenterCoords) {
+            map.flyTo(mapCenterCoords, zoom, {
+                animate: true,
+                duration: 2
+            })
+        }
+    }, [mapCenterCoords])
 
     useEffect(() => {
         const bounds = map.getBounds();

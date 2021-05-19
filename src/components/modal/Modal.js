@@ -20,7 +20,7 @@ const Modal = ({active, setActive, children}) => {
 
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Modal;
+export default Modal

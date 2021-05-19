@@ -2,8 +2,10 @@ import css from './selectPanel.module.scss'
 import CustomDatePicker from "../custom-date-picker/CustomDatePicker"
 import Button from "../button/Button"
 import {Link} from "react-router-dom";
-import React from "react";
+import React, {useState} from "react";
 import SearchCities from "../search-cities/SearchCities";
+import {setCenterCoords} from "../../redux/mapItemsSlice";
+import {useDispatch} from "react-redux";
 
 const Select = ({title, icon, children}) => {
     return (
@@ -18,12 +20,18 @@ const Select = ({title, icon, children}) => {
 }
 
 const SelectPanel = () => {
+    const dispatch = useDispatch()
+    const [enterCity, setEnterCity] = useState(null)
+
+    const searchHandler = () => {
+        dispatch(setCenterCoords(enterCity))
+    }
     return (
         <div className={css.selectPanel}>
             <Select title="Location"
                     icon='icon-search'>
 
-                <SearchCities/>
+                <SearchCities setEnterCity={setEnterCity}/>
             </Select>
             <Select title="Start date"
                     icon='icon-calendar'>
@@ -40,7 +48,7 @@ const SelectPanel = () => {
 
 
             <Button style={css.searchBtn}>
-                <Link to="/homes">
+                <Link onClick={searchHandler} to="/homes">
                     <i className="icon-search"></i>
                 </Link>
             </Button>
