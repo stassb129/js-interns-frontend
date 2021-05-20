@@ -1,6 +1,6 @@
 import css from './modal.module.scss'
 
-const Modal = ({active, setActive, children}) => {
+const Modal = ({active, setActive, children, style}) => {
 
     const closeHandler = () => {
         setActive(false)
@@ -10,7 +10,7 @@ const Modal = ({active, setActive, children}) => {
         <div className={active ? `${css.active} ${css.modal}` : css.modal}
              onClick={closeHandler}>
 
-            <div className={css.modal_content}
+            <div className={`${css.modal_content}`}
                  onClick={e => e.stopPropagation()}>
 
                 <div className={css.close}

@@ -2,16 +2,16 @@ import 'leaflet/dist/leaflet.css'
 import './markers.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {Marker, Popup, useMapEvents} from "react-leaflet";
-import {fetchMapItems, setCenterCoords, setCoords} from "../../redux/mapItemsSlice";
+import {fetchMapItems, setCenterCoords, setCity, setCoords} from "../../redux/mapItemsSlice";
 import {divIcon} from "leaflet";
 import {useEffect} from "react";
 import {fetchPlaces} from "../../redux/placesSlice";
-import {zoom} from "leaflet/src/control/Control.Zoom";
 
 
 function LocationMarkers() {
     const mapMarkers = useSelector(state => state.mapItems.items.data)
     const mapCenterCoords = useSelector(state => state.mapItems.items.centerCoords)
+    const mapCityName = useSelector(state => state.mapItems.items.cityName)
     const zoom = useSelector(state => state.mapItems.items.zoom)
     const dispatch = useDispatch()
 
@@ -26,13 +26,16 @@ function LocationMarkers() {
     })
 
     useEffect(() => {
-        if (mapCenterCoords) {
+        if (mapCityName) {
             map.flyTo(mapCenterCoords, zoom, {
                 animate: true,
                 duration: 2
             })
+            const bounds = map.getBounds()
+            dispatch(setCity(bounds))
         }
-    }, [mapCenterCoords])
+    }, [mapCityName])
+
 
     useEffect(() => {
         const bounds = map.getBounds();
@@ -57,7 +60,6 @@ function LocationMarkers() {
         iconAnchor: [15, 42]
     });
 
-    // console.log(mapMarkers.data.length)
 
     return mapMarkers && mapMarkers.map(e => {
 

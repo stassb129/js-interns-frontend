@@ -14,6 +14,7 @@ const mapItemsSlice = createSlice({
             error: {},
             coords: {},
             centerCoords: null,
+            cityName: null,
             zoom: null
         }
     },
@@ -25,7 +26,14 @@ const mapItemsSlice = createSlice({
         setCenterCoords: (state, action) => {
             if (action.payload !== null) {
                 state.items.centerCoords = action.payload.centerCoords
+            }
+        },
+
+        setCity: (state, action) => {
+            if (action.payload) {
+                state.items.centerCoords = action.payload.centerCoords
                 state.items.zoom = action.payload.zoom
+                state.items.cityName = action.payload.name
             }
         }
     },
@@ -49,5 +57,5 @@ const mapItemsSlice = createSlice({
     }
 })
 
-export const {setCoords, setCenterCoords} = mapItemsSlice.actions
+export const {setCoords, setCenterCoords, setCity} = mapItemsSlice.actions
 export default mapItemsSlice.reducer

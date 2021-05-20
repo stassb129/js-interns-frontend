@@ -3,9 +3,9 @@ import logo from '../../../images/logo.png'
 import Button from "../../button/Button"
 import {Link} from "react-router-dom"
 import SearchCities from "../../search-cities/SearchCities"
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useState} from "react";
-import {setCenterCoords} from "../../../redux/mapItemsSlice";
+import {setCity} from "../../../redux/mapItemsSlice";
 
 
 const HeaderSelect = () => {
@@ -13,7 +13,7 @@ const HeaderSelect = () => {
     const [enterCity, setEnterCity] = useState(null)
 
     const searchHandler = () => {
-        dispatch(setCenterCoords(enterCity))
+        dispatch(setCity(enterCity))
     }
 
     return (

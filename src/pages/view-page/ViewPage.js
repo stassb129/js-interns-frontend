@@ -33,22 +33,24 @@ const ViewPage = ({match}) => {
                 />}
 
 
-                {/*<div className={css.imagesContainer}>*/}
-                {/*    <div style={{backgroundImage: `url(${e.listing.pictureUrl})`}} className={css.main}></div>*/}
+                {
+                    place &&
+                    <div className={css.imagesContainer}>
+                        <div style={{backgroundImage: `url(${place.listing.pictureUrl})`}} className={css.main}></div>
 
-                {/*    <div style={{backgroundImage: `url(${e.listing.contextualPictures[1].picture})`}}>*/}
-                {/*    </div>*/}
+                        <div style={{backgroundImage: `url(${place.listing.contextualPictures[1].picture})`}}>
+                        </div>
 
-                {/*    <div style={{backgroundImage: `url(${e.listing.contextualPictures[2].picture})`}}>*/}
-                {/*    </div>*/}
+                        <div style={{backgroundImage: `url(${place.listing.contextualPictures[2].picture})`}}>
+                        </div>
 
-                {/*    <div style={{backgroundImage: `url(${e.listing.contextualPictures[3].picture})`}}>*/}
-                {/*    </div>*/}
+                        <div style={{backgroundImage: `url(${place.listing.contextualPictures[3].picture})`}}>
+                        </div>
 
-                {/*    <div style={{backgroundImage: `url(${e.listing.contextualPictures[4].picture})`}}>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
+                        <div style={{backgroundImage: `url(${place.listing.contextualPictures[4].picture})`}}>
+                        </div>
+                    </div>
+                }
 
 
                 {place &&
