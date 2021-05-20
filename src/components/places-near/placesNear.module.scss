@@ -1,7 +1,6 @@
 .placesNear {
   padding: 10px 15px;
 
-
   h3 {
     font-size: 1.6rem;
     color: #3b3b3b;
@@ -23,6 +22,7 @@
     border-radius: 7px;
     font-size: 0.9rem;
     transition: 0.2s all;
+
     &:hover {
       border: 1px #3ec0d6 solid;
     }
@@ -34,4 +34,11 @@
     color: white;
     font-weight: bold;
   }
+}
+
+.noPlaces {
+  color: #9f9f9f;
+  font-size: 1.5rem;
+  margin-top: 300px;
+  text-align: center;
 }

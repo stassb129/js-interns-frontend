@@ -86,7 +86,7 @@ const PlacesNear = ({scrollPage}) => {
                 </button>
             </div>
 
-            {placesData && placesData.data && placesData.data.map((e) => (
+            {placesData && placesData.data.length !== 0 ? placesData.data.map((e) => (
                 <PlaceItem
                     key={e._id}
                     id={e._id}
@@ -98,7 +98,7 @@ const PlacesNear = ({scrollPage}) => {
                     rateCount={e.listing.reviewsCount}
                     price={e.pricingQuote.priceString}
                 />
-            ))}
+            )) : <div className={css.noPlaces}>There are no hotels in this area...</div>}
         </div>
     )
 }
