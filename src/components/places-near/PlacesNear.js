@@ -67,19 +67,19 @@ const PlacesNear = ({scrollPage}) => {
         <div className={css.placesNear}>
             <h3>Places to buy near you</h3>
             <div className={css.filters}>
-                <button className={upPriceFilterActive && css.active}
+                <button className={upPriceFilterActive ? css.active : ''}
                         onClick={upPriceFilterHandler}>
                     Price
                     <i className="icon-up-open"></i>
                 </button>
 
-                <button className={downPriceFilterActive && css.active}
+                <button className={downPriceFilterActive ? css.active : ''}
                         onClick={downPriceFilterHandler}>
                     Price
                     <i className="icon-down-open"></i>
                 </button>
 
-                <button className={upRateFilterActive && css.active}
+                <button className={upRateFilterActive ? css.active : ''}
                         onClick={upRateFilterHandler}>
                     Rating
                     <i className="icon-up-open"></i>

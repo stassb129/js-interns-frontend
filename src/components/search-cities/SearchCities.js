@@ -19,7 +19,7 @@ const Location = ({city, setCity, setEnterCity}) => {
         }
         setCity(location.display_name)
         if (locationCities) {
-            setEnterCity({centerCoords: cords, zoom: 15})
+            setEnterCity({centerCoords: cords, zoom: 15, name: location.display_name})
         }
 
         setLocationCities(null)
