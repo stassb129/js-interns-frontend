@@ -4,7 +4,7 @@ const Delimiter = () => {
     return (
         <div className={css.delimiter}>
         </div>
-    );
-};
+    )
+}
 
-export default Delimiter;
+export default Delimiter

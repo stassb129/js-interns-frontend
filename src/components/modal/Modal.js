@@ -10,7 +10,7 @@ const Modal = ({active, setActive, children, style}) => {
         <div className={active ? `${css.active} ${css.modal}` : css.modal}
              onClick={closeHandler}>
 
-            <div className={`${css.modal_content}`}
+            <div className={`${css.modal_content} ${style}`}
                  onClick={e => e.stopPropagation()}>
 
                 <div className={css.close}

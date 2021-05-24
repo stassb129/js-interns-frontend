@@ -20,6 +20,8 @@ $link_color: #7A6CF7;
 
 $btn_radius: 6px;
 
+$delimiter_color: rgba(215, 215, 215, 0.95);
+
 $main_gradient: linear-gradient(90deg, rgba(255, 99, 138, 1) 0%, rgba(255, 132, 121, 1) 100%);
 $main_revers_gradient: linear-gradient(90deg, rgba(255, 132, 121, 1) 0%, rgba(255, 99, 138, 1) 100%);
 
@@ -39,15 +41,15 @@ $main_revers_gradient: linear-gradient(90deg, rgba(255, 132, 121, 1) 0%, rgba(25
   border: 2px solid rgba(0, 0, 0, 0);
   transition: 0.2s all;
 
-  &:focus{
+  &:focus {
     border: 2px solid #bfbfbf;
   }
-  &::-webkit-input-placeholder{
+  &::-webkit-input-placeholder {
     color: #c4c4c4;
   }
 }
 
-@mixin container{
+@mixin container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }

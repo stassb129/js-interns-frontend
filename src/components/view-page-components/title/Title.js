@@ -1,6 +1,7 @@
 import css from './title.module.scss'
+import Rating from "../../rating/Rating"
 
-const Title = ({name, city, rating, rateCount}) => {
+const Title = ({name, city, rating, reviewsCount, badges}) => {
     return (
         <div className={css.viewTitle}>
             <div className={css.title}>{name}</div>
@@ -8,14 +9,11 @@ const Title = ({name, city, rating, rateCount}) => {
                 <div className={css.city}>
                     {city}
                 </div>
-                <div className={css.superhost}>
-                    superhost
+                <div className={css.badges}>
+                    {badges.map(e => e)}
                 </div>
-                <div className={css.reviews}>
-                    <i className="icon-star"></i>
-                    {rating}
-                    <span>({rateCount} reviews)</span>
-                </div>
+                <Rating rating={rating}
+                        reviewsCount={reviewsCount}/>
             </div>
         </div>
     )

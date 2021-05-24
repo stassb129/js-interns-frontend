@@ -114,7 +114,7 @@ export default PlacesNear
 //listing.kickerContent.messages - маленькое описание
 //listing.localizedCity - город
 //listing.pictureUrl - основное фото
-//listing.reviews - отзывы
+//listing.rating - отзывы
 //listing.reviewsCount - кол-во отзывов
 //listing.publicAddress - адрес
 //listing.pricingQuote.priceString - шо по бабкам

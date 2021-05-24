@@ -1,0 +1,46 @@
+.panel {
+  border-radius: 15px;
+  box-shadow: 2px 2px 15px #d2d2d2;
+  width: 300px;
+  padding: 25px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.date {
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .check {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: #7c7c7c;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.datePicker {
+  background-color: #f1f1f1;
+}
+
+.guests {
+
+}
+
+.bookBtn {
+  padding: 10px 0;
+  font-size: 1.5rem;
+}

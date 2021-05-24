@@ -1,0 +1,13 @@
+@import "../../scss/consts";
+
+.reviews {
+  i {
+    color: $yellow_color;
+  }
+
+  span {
+    margin: 0 2px;
+    color: #a1a1a1;
+    font-size: 0.9rem;
+  }
+}

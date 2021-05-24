@@ -3,11 +3,11 @@ import {forwardRef, useState} from "react"
 import 'react-datepicker/dist/react-datepicker.css'
 import DatePicker from 'react-datepicker'
 
-const CustomDatePicker = () => {
+const CustomDatePicker = ({style}) => {
     const [startDate, setStartDate] = useState(new Date());
     const ExampleCustomInput = forwardRef(
         ({value, onClick}, ref) => (
-            <button className={css.dateInput} onClick={onClick} ref={ref}>
+            <button className={`${css.dateInput} ${style}`} onClick={onClick} ref={ref}>
                 {value}
             </button>
         ),

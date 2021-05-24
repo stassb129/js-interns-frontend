@@ -1,0 +1,38 @@
+.amenitiesContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.amenities {
+
+}
+
+.amenity {
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    color: #5b5b5b;
+    margin: 20px 30px;
+    font-weight: 500;
+  }
+}
+
+.yes {
+  color: #76e396;
+  margin: 0 5px;
+}
+
+.no {
+  color: #de7373;
+  margin: 0 5px;
+}
+
+.sleeping {
+
+}

@@ -1,8 +1,7 @@
 @import "../../scss/consts";
 
 .delimiter {
-  height: 2px;
-  width: 100%;
+  height: 50px;
+  width: 2px;
   background-color: $delimiter_color;
-  margin: 35px 0;
 }

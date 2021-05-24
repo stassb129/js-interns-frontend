@@ -25,9 +25,31 @@
   box-shadow: 0px 0px 23px rgb(190, 26, 65);
   transition: 0.2s background-color;
   content: '';
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   background: rgb(255, 53, 102);
   position: absolute;
   border-radius: 50%;
+}
+
+
+.marker-home {
+  width: 80px;
+  height: 80px;
+  border-radius: 50% 50% 0% 50%;
+  transform: rotate(45deg);
+  color: #ffffff;
+  font-size: 2.5rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: rgb(255, 53, 102);
+  margin: -75px 0 0 -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    transform: rotate(-45deg) translateX(-2px);
+  }
 }

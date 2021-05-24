@@ -17,4 +17,3 @@ export const store = configureStore({
     reducer: rootReducer,
     middleware: customizedMiddleware
 })
-

@@ -1,60 +1,44 @@
 @import "../../scss/consts";
 
 .viewPage {
-  background-color: #d7d7d7;
+
 }
 
 .goBack {
   font-size: 2rem;
   color: #646464;
   position: absolute;
-  left: 40px;
+  left: -100px;
 }
 
 .content {
   background-color: white;
   margin-top: 7px;
-  padding: 20px 7%;
+  padding: 40px 0;
+}
+
+.container {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
 }
 
 
-.imagesContainer {
-  div {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  border-radius: 15px;
-  overflow: hidden;
-  height: 400px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px 10px;
-  grid-template-areas:
-    "main main . ."
-    "main main . .";
-}
-
-.main {
-  grid-area: 1 / 1 / 3 / 3;
-}
-
-.carouselItem {
-  height: 600px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
 .bookBlock {
+  gap: 30px;
   display: flex;
   justify-content: space-between;
 }
 
 .book {
-  width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  position: sticky;
+  top: 30px;
+  height: fit-content;
+}
+
+.about {
+  width: 100%;
 }
