@@ -53,16 +53,24 @@ const ViewPage = ({match}) => {
                 }
 
 
-                {place &&
-                <About
-                    desc={place.listing.kickerContent.messages}
-                    guests={place.listing.guestLabel}
-                    hostName={place.listing.user.firstName}
-                    hostPicture={place.listing.user.pictureUrl}
-                    bathrooms={place.listing.bathrooms}
-                    bedrooms={place.listing.bedrooms}
-                    beds={place.listing.beds}
-                />}
+                <div className={css.bookBlock}>
+                    {place &&
+                    <About
+                        desc={place.listing.kickerContent.messages}
+                        guests={place.listing.guestLabel}
+                        hostName={place.listing.user.firstName}
+                        hostPicture={place.listing.user.pictureUrl}
+                        bathrooms={place.listing.bathrooms}
+                        bedrooms={place.listing.bedrooms}
+                        beds={place.listing.beds}
+                    />}
+
+                    <div className={css.book}>
+                        boook
+                    </div>
+
+                </div>
+
 
             </div>
 
@@ -72,7 +80,6 @@ const ViewPage = ({match}) => {
 
 export default withRouter(ViewPage)
 
-//listing. badges[]
 //listing.bathrooms
 //listing.beds
 //listing.bedrooms
@@ -81,3 +88,8 @@ export default withRouter(ViewPage)
 //listing.user.firstName
 //listing.user.pictureUrl
 //listing.kickerContent.messages
+
+
+//listing.isBusinessTravelReady
+//listing.isNewListing
+//pricingQuote.canInstantBook

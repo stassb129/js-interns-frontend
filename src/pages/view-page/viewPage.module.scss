@@ -18,7 +18,6 @@
 }
 
 
-
 .imagesContainer {
   div {
     background-position: center;
@@ -28,7 +27,7 @@
 
   border-radius: 15px;
   overflow: hidden;
-  height: 600px;
+  height: 400px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -42,10 +41,20 @@
   grid-area: 1 / 1 / 3 / 3;
 }
 
-
-
 .carouselItem {
   height: 600px;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.bookBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
