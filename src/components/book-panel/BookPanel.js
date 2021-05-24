@@ -31,7 +31,7 @@ const BookPanel = ({price, rating, reviewsCount}) => {
             </div>
 
             <div className={css.guests}>
-                <CustomSelect/>
+                <CustomSelect style={css.guests}/>
             </div>
 
             <Button style={css.bookBtn}>Book Now</Button>

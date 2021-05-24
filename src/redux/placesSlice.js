@@ -25,7 +25,8 @@ const placesSlice = createSlice({
         sort: {
             upPrice: false,
             downPrice: false,
-            upRate: false
+            upRate: false,
+            beds: 1
         },
         data: null,
         errors: {}
@@ -41,6 +42,9 @@ const placesSlice = createSlice({
             if (action.payload === 'upRate') {
                 state.sort.upRate = !state.sort.upRate
             }
+        },
+        setBeds(state, action) {
+            state.sort.beds = action.payload
         }
     },
     extraReducers: {
@@ -81,5 +85,5 @@ const placesSlice = createSlice({
     }
 })
 
-export const {setSort} = placesSlice.actions
+export const {setSort, setBeds} = placesSlice.actions
 export default placesSlice.reducer

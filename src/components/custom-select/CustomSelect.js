@@ -1,17 +1,22 @@
 import css from './customSelect.module.scss'
 import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {setBeds} from "../../redux/placesSlice";
 
-const CustomSelect = () => {
-    const [value, setValue] = useState("1")
+const CustomSelect = ({style}) => {
+    const dispatch = useDispatch()
+    const beds = useSelector(state => state.places.sort.beds)
+
+    // const [value, setValue] = useState(beds)
 
     const selectHandler = (e) => {
-        setValue(e.target.value)
+        dispatch(setBeds(e.target.value))
     }
 
     return (
-        <select className={css.select}
+        <select className={`${css.select} ${style}`}
                 onChange={selectHandler}
-                value={value}
+                value={beds}
                 name="guests"
                 id="">
             <option value="1">1 Guest</option>

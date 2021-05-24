@@ -6,6 +6,8 @@ import React, {useState} from "react";
 import SearchCities from "../search-cities/SearchCities";
 import {setCenterCoords} from "../../redux/mapItemsSlice";
 import {useDispatch} from "react-redux";
+import BookPanel from "../book-panel/BookPanel";
+import CustomSelect from "../custom-select/CustomSelect";
 
 const Select = ({title, icon, children}) => {
     return (
@@ -43,7 +45,7 @@ const SelectPanel = () => {
             </Select>
             <Select title="Bedroom"
                     icon='icon-bed'>
-                Select Type
+                <CustomSelect/>
             </Select>
 
 
