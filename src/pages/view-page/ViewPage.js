@@ -11,6 +11,7 @@ import Delimiter from "../../components/delimiter/Delimiter";
 import Amenities from "../../components/view-page-components/amenities/Amenities";
 import ViewMap from "../../components/view-page-components/view-map/ViewMap";
 import GalleryContainer from "../../components/gallery/GalleryContainer";
+import PaymentModal from "../../components/payment-modal/PaymentModal";
 
 const ViewPage = ({match}) => {
 
@@ -86,6 +87,8 @@ const ViewPage = ({match}) => {
 
                 </div>
             </div>
+
+            <PaymentModal/>
 
             <Footer/>
         </div>
