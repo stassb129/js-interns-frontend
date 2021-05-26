@@ -1,0 +1,13 @@
+@import "../../scss/consts";
+
+.success {
+  position: absolute;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  @include display-center;
+  border-radius: 100px;
+  color: white;
+  text-align: center;
+  background-color: rgb(111, 231, 139);
+}

@@ -1,26 +1,29 @@
+import css from './stripeCard.module.scss'
 import {CardElement, useElements, useStripe} from "@stripe/react-stripe-js"
-import {sendPayment} from "../../api/sendPayment"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {fetchPayment, setStatus} from "../../redux/paymentSlice";
 import {useEffect} from "react";
+import Preloader from "../preloader/Preloader";
+import SuccessSign from "../success-sign/SuccessSign";
 
-const StripeCard = () => {
+const StripeCard = ({amount, roomId, description}) => {
     const stripe = useStripe()
     const elements = useElements()
     const dispatch = useDispatch()
 
+    const paymentStatus = useSelector(state => state.payment.status)
+
     useEffect(() => {
         return () => {
-            dispatch(setStatus())
+            dispatch(setStatus(''))
         }
     }, [])
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        dispatch(setStatus('loading'))
 
         if (!stripe || !elements) {
-            // Stripe.js has not loaded yet. Make sure to disable
-            // form submission until Stripe.js has loaded.
             return
         }
 
@@ -37,15 +40,16 @@ const StripeCard = () => {
             const {id} = paymentMethod
             const data = {
                 id: id,
-                amount: 21000,
-                roomId: '6017d2dc0558000058006fc0'
+                amount: amount,
+                roomId: roomId,
+                description: description
             }
             dispatch(fetchPayment(data))
         }
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={css.form} onSubmit={handleSubmit}>
             <CardElement
                 options={{
                     style: {
@@ -62,7 +66,13 @@ const StripeCard = () => {
                     },
                 }}
             />
-            <button type="submit" disabled={!stripe}>
+            <button className={css.payBtn} type="submit" disabled={!stripe || paymentStatus !== ''}>
+                {paymentStatus === "loading" ?
+                    <Preloader style={css.loader}/> :
+                    paymentStatus === 'success' ?
+                        <SuccessSign/> :
+                        paymentStatus === 'error' ?
+                            <div>ERROR</div> : null}
                 Pay
             </button>
         </form>

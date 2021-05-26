@@ -6,7 +6,7 @@ import Delimiter from "../delimiter/Delimiter";
 import CustomSelect from "../custom-select/CustomSelect";
 import Button from "../button/Button";
 
-const BookPanel = ({price, rating, reviewsCount}) => {
+const BookPanel = ({price, rating, reviewsCount, bookHandler}) => {
 
     return (
         <div className={css.panel}>
@@ -34,8 +34,7 @@ const BookPanel = ({price, rating, reviewsCount}) => {
                 <CustomSelect style={css.guests}/>
             </div>
 
-            <Button style={css.bookBtn}>Book Now</Button>
-
+            <Button click={bookHandler} style={css.bookBtn}>Book Now</Button>
 
         </div>
     )

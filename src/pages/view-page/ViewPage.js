@@ -16,6 +16,11 @@ import PaymentModal from "../../components/payment-modal/PaymentModal";
 const ViewPage = ({match}) => {
 
     const [place, setPlace] = useState(null)
+    const [activePaymentModal, setActivePaymentModal] = useState(false)
+
+    const modalHandler = () => {
+        setActivePaymentModal(!activePaymentModal)
+    }
 
     useEffect(() => {
         getPlaceById(match.params.id).then(r => setPlace(r))
@@ -80,15 +85,22 @@ const ViewPage = ({match}) => {
                         <div className={css.book}>
                             {place &&
                             <BookPanel price={place.pricingQuote.priceString}
+                                       bookHandler={modalHandler}
                                        rating={place.listing.avgRating}
                                        reviewsCount={place.listing.reviewsCount}/>}
                         </div>
+
                     </div>
 
                 </div>
             </div>
 
-            <PaymentModal/>
+            {place && activePaymentModal &&
+            <PaymentModal active={activePaymentModal}
+                          amount={place.pricingQuote.rate.amount}
+                          title={place.listing.name}
+                          id={place._id}
+                          setActive={setActivePaymentModal}/>}
 
             <Footer/>
         </div>

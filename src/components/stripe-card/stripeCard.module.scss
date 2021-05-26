@@ -1,0 +1,38 @@
+@import "../../scss/consts";
+
+.form {
+  width: 100%;
+}
+
+.payBtn {
+  position: relative;
+  padding: 13px 20px;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: whitesmoke;
+  background-color: #ff567f;
+  border-radius: 5px;
+  transition: 0.3s all;
+  cursor: pointer;
+  @include display-center;
+
+  &:disabled {
+    background-color: rgba(255, 206, 217, 0.69);
+  }
+
+  &:disabled:hover {
+    background-color: rgba(255, 206, 217, 0.69);
+    cursor: default;
+  }
+
+  &:hover {
+    background-color: #ff6a8d;
+  }
+}
+
+.loader {
+  position: absolute;
+}
