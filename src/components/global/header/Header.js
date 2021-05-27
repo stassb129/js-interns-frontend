@@ -6,6 +6,7 @@ import SearchCities from "../../search-cities/SearchCities"
 import {useDispatch} from "react-redux";
 import {useState} from "react";
 import {setCity} from "../../../redux/mapItemsSlice";
+import CustomSelect from "../../custom-select/CustomSelect";
 
 
 const HeaderSelect = () => {
@@ -18,11 +19,20 @@ const HeaderSelect = () => {
 
     return (
         <div className={css.headerSelect}>
-            <div className={css.city}>
-                <SearchCities setEnterCity={setEnterCity}/>
+
+            <div className={css.select}>
+                    <SearchCities setEnterCity={setEnterCity}/>
             </div>
-            <div className={css.date}>Nov 7-20</div>
-            <div className={css.bedrooms}>3 Bedrooms</div>
+
+            <div className={css.select}>
+                Nov 7-20
+            </div>
+
+
+            <div className={css.select}>
+                <CustomSelect style={css.beds}/>
+            </div>
+
             <Button click={searchHandler} style={css.searchBtn}>
                 <i className="icon-search"></i>
             </Button>

@@ -2,13 +2,15 @@ import css from './placesNear.module.scss'
 import PlaceItem from "../place-item/PlaceItem";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {fetchNextPlaces, fetchPlaces, setSort} from "../../redux/placesSlice";
+import {fetchNextPlaces, fetchPlaces, setFilter, setSort} from "../../redux/placesSlice";
+import RangeSlider from "../range-slider/RangeSlider";
 
 
 const PlacesNear = ({scrollPage}) => {
 
     const dispatch = useDispatch()
     const placesData = useSelector(state => state.places.data)
+    const priceRange = useSelector(state => state.places.sort.priceRange)
     const statusMapUpdate = useSelector(state => state.places.statusMapUpdate)
     const [fetch, setFetch] = useState(false)
 
@@ -19,6 +21,10 @@ const PlacesNear = ({scrollPage}) => {
 
     const sortHandler = (type) => {
         dispatch(setSort(type))
+        dispatch(fetchPlaces())
+    }
+    const filterHandler = (type, value) => {
+        dispatch(setFilter({type, value}))
         dispatch(fetchPlaces())
     }
 
@@ -36,6 +42,11 @@ const PlacesNear = ({scrollPage}) => {
         setUpRateFilterActive(!upRateFilterActive)
         sortHandler('upRate')
     }
+
+    const rangePriceFilterHandler = (value) => {
+        filterHandler('priceRange', value)
+    }
+
 
     useEffect(() => {
         if (fetch) {
@@ -66,6 +77,7 @@ const PlacesNear = ({scrollPage}) => {
     return (
         <div className={css.placesNear}>
             <h3>Places to buy near you</h3>
+
             <div className={css.filters}>
                 <button className={upPriceFilterActive ? css.active : ''}
                         onClick={upPriceFilterHandler}>
@@ -84,6 +96,10 @@ const PlacesNear = ({scrollPage}) => {
                     Rating
                     <i className="icon-up-open"></i>
                 </button>
+
+                <RangeSlider callback={rangePriceFilterHandler}
+                             maxValue={5000}
+                             initValue={priceRange}/>
             </div>
 
             {placesData && placesData.data.length !== 0 ? placesData.data.map((e) => (

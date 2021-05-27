@@ -40,30 +40,40 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: fit-content;
   border-radius: 4px;
   padding: 3px;
+  height: 40px;
 
-  div {
+  .select {
+    height: 100%;
+    display: flex;
+    align-items: center;
     background-color: white;
     font-size: 0.8em;
     white-space: nowrap;
     width: fit-content;
     text-align: center;
-    padding: 10px;
     margin: 0 3px;
+    padding: 0 5px;
     color: #3b3b3b;
     border-radius: 4px;
   }
 
   .city {
     font-size: 1.6rem !important;
-    padding: 0 !important;
+
     margin: 0 0 !important;
   }
 
   .searchBtn {
-    padding: 4px;
+    padding: 5px;
+    margin-left: 3px;
   }
 
+}
+
+.beds {
+  background-color: white;
+  height: 100%;
+  width: fit-content;
 }

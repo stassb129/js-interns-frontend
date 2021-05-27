@@ -11,14 +11,13 @@ const GalleryModal = ({active, setActive, pictures}) => {
                     src: `${e}`,
                     thumbnail: `${e}`,
                     thumbnailWidth: 320,
-                    thumbnailHeight: 212
+
                 }
             } else
                 return {
                     src: `${e}`,
                     thumbnail: `${e}`,
                     thumbnailWidth: 320,
-                    thumbnailHeight: 170
                 }
         }
     )

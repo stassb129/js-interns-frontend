@@ -1,12 +1,11 @@
 import css from './customSelect.module.scss'
-import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setBeds} from "../../redux/placesSlice";
 
 const CustomSelect = ({style}) => {
     const dispatch = useDispatch()
     const beds = useSelector(state => state.places.sort.beds)
-    
+
 
     const selectHandler = (e) => {
         dispatch(setBeds(e.target.value))

@@ -9,8 +9,10 @@
 
 .filters {
   display: flex;
+  align-items: center;
 
   button {
+    height: 30px;
     margin: 0 15px;
     padding: 5px 10px;
     font-weight: 500;

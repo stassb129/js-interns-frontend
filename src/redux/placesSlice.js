@@ -26,7 +26,8 @@ const placesSlice = createSlice({
             upPrice: false,
             downPrice: false,
             upRate: false,
-            beds: 1
+            beds: 1,
+            priceRange: [0, 5000]
         },
         data: null,
         errors: {}
@@ -41,6 +42,11 @@ const placesSlice = createSlice({
             }
             if (action.payload === 'upRate') {
                 state.sort.upRate = !state.sort.upRate
+            }
+        },
+        setFilter(state, action) {
+            if (action.payload.type === 'priceRange') {
+                state.sort.priceRange = action.payload.value
             }
         },
         setBeds(state, action) {
@@ -85,5 +91,5 @@ const placesSlice = createSlice({
     }
 })
 
-export const {setSort, setBeds} = placesSlice.actions
+export const {setSort, setBeds, setFilter} = placesSlice.actions
 export default placesSlice.reducer

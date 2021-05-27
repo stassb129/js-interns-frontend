@@ -17,7 +17,6 @@ import houston from '../../images/cities/houston.jpg'
 import new_york from '../../images/cities/new_york'
 
 
-
 const WelcomePage = () => {
     return (
         <div className={css.welcomePage}>

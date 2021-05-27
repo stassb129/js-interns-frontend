@@ -12,6 +12,7 @@ import Amenities from "../../components/view-page-components/amenities/Amenities
 import ViewMap from "../../components/view-page-components/view-map/ViewMap";
 import GalleryContainer from "../../components/gallery/GalleryContainer";
 import PaymentModal from "../../components/payment-modal/PaymentModal";
+import {getProfile} from "../../api/api";
 
 const ViewPage = ({match}) => {
 
@@ -94,6 +95,7 @@ const ViewPage = ({match}) => {
 
                 </div>
             </div>
+            
 
             {place && activePaymentModal &&
             <PaymentModal active={activePaymentModal}
