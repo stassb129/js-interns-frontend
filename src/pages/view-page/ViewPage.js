@@ -17,11 +17,11 @@ import {getProfile} from "../../api/api";
 const ViewPage = ({match}) => {
 
     const [place, setPlace] = useState(null)
-    const [activePaymentModal, setActivePaymentModal] = useState(false)
-
-    const modalHandler = () => {
-        setActivePaymentModal(!activePaymentModal)
-    }
+    // const [activePaymentModal, setActivePaymentModal] = useState(false)
+    //
+    // const modalHandler = () => {
+    //     setActivePaymentModal(!activePaymentModal)
+    // }
 
     useEffect(() => {
         getPlaceById(match.params.id).then(r => setPlace(r))
@@ -86,8 +86,10 @@ const ViewPage = ({match}) => {
                         <div className={css.book}>
                             {place &&
                             <BookPanel price={place.pricingQuote.priceString}
-                                       bookHandler={modalHandler}
+                                       id={place._id}
+                                       title={place.listing.name}
                                        rating={place.listing.avgRating}
+                                       amount={place.pricingQuote.rate.amount}
                                        reviewsCount={place.listing.reviewsCount}/>}
                         </div>
 
@@ -95,22 +97,19 @@ const ViewPage = ({match}) => {
 
                 </div>
             </div>
+            {/*    const [activePaymentModal, setActivePaymentModal] = useState(false)*/}
 
+            {/*    const modalHandler = () => {*/}
+            {/*    setActivePaymentModal(!activePaymentModal)*/}
+            {/*}*/}
 
-            {place && activePaymentModal &&
-            <PaymentModal active={activePaymentModal}
-                          amount={place.pricingQuote.rate.amount}
-                          title={place.listing.name}
-                          id={place._id}
-                          setActive={setActivePaymentModal}/>}
+            {/*    {place && activePaymentModal &&*/}
+            {/*    <PaymentModal active={activePaymentModal}*/}
+            {/*                  amount={place.pricingQuote.rate.amount}*/}
+            {/*                  title={place.listing.name}*/}
+            {/*                  id={place._id}*/}
+            {/*                  setActive={setActivePaymentModal}/>}*/}
 
-            <button onClick={
-                () => {
-                    console.log(getProfile())
-                }
-            }>
-                Send
-            </button>
 
             <Footer/>
         </div>

@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {sendPayment} from "../api/sendPayment";
 
-export const fetchPayment = createAsyncThunk('payment/fetchingMapItems', ({id, amount, roomId, description}) => {
-    return sendPayment(id, amount, roomId, description)
+export const fetchPayment = createAsyncThunk('payment/fetchingMapItems', ({id, amount, description, metadata}) => {
+    return sendPayment(id, amount, description, metadata)
 
 })
 

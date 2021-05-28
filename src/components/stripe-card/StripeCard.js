@@ -6,7 +6,7 @@ import {useEffect} from "react";
 import Preloader from "../preloader/Preloader";
 import SuccessSign from "../success-sign/SuccessSign";
 
-const StripeCard = ({amount, roomId, description}) => {
+const StripeCard = ({amount, roomId, description, chekIn, chekOut, guests}) => {
     const stripe = useStripe()
     const elements = useElements()
     const dispatch = useDispatch()
@@ -39,10 +39,15 @@ const StripeCard = ({amount, roomId, description}) => {
         } else {
             const {id} = paymentMethod
             const data = {
-                id: id,
-                amount: amount,
-                roomId: roomId,
-                description: description
+                id,
+                amount,
+                description,
+                metadata: {
+                    chekIn,
+                    chekOut,
+                    guests,
+                    roomId,
+                }
             }
             dispatch(fetchPayment(data))
         }

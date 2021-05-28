@@ -6,12 +6,17 @@ import Modal from "../modal/Modal";
 
 const stripePromise = loadStripe('pk_test_51IuvNqEo4u7eYIVbE5NsXubSFYsJKdvDLz23lGWNAlKgl7Lv9AkR5KiCZClzK7YUBMVrh7jFCFwSRL3zv710PfVt002T3FZsfg');
 
-const PaymentModal = ({active, setActive, amount, id, title}) => {
+const PaymentModal = ({active, setActive, amount, id, title, chekIn, checkOut, guests}) => {
 
     return (
         <Modal active={active} style={css.modal} setActive={setActive}>
             <Elements stripe={stripePromise}>
-                <StripeCard amount={amount} description={title} roomId={id}/>
+                <StripeCard amount={amount}
+                            description={title}
+                            chekIn={chekIn}
+                            chekOut={checkOut}
+                            guests={guests}
+                            roomId={id}/>
             </Elements>
         </Modal>
     )
