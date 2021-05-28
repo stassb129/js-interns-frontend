@@ -1,9 +1,9 @@
-import axios from "axios";
+import {postRequest} from "./api";
 
 
 export const sendPayment = async (id, amount, roomId, description) => {
     try {
-        const res = await axios.post('/api/payment', {
+        const res = await postRequest('/api/payment', {
             id,
             amount: amount * 100,
             metadata: {

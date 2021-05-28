@@ -1,9 +1,9 @@
-import axios from "axios";
+import {postRequest} from "./api";
 
 
 export const getMapItems = async (coords) => {
     try {
-        const res = await axios.post('/api/items', {
+        const res = await postRequest('/api/items', {
             leftBottomCoords: [coords._southWest.lat, coords._southWest.lng],
             rightTopCoords: [coords._northEast.lat, coords._northEast.lng]
         })
@@ -12,5 +12,4 @@ export const getMapItems = async (coords) => {
     } catch (e) {
         return e
     }
-
 }

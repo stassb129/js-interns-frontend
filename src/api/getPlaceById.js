@@ -1,9 +1,9 @@
-import axios from "axios";
+import {getRequest} from "./api";
 
 
 export const getPlaceById = async (id) => {
 
-    const res = await axios.get(`/api/items/${id}`)
+    const res = await getRequest(`/api/items/${id}`)
     return res.data
 
 }

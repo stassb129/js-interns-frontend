@@ -1,34 +1,29 @@
 import axios from "axios";
 
-export const get = (url, params) => {
-
-}
-
-export const post = () => {
-
-}
-
-const accessToken = localStorage.getItem('token')
-
-console.log(accessToken)
-
-axios.interceptors.request.use(
-    config => {
-        config.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoic3RhcyIsImlhdCI6MTYyMjEyMTkxMSwiZXhwIjoxNjIyMTIyMDMxfQ.SgyjyqiHSJdcPXJT_LFXLiqnokmk0Ck966hA0pPuBwc`
-        return config
-    },
-    error => {
-        return Promise.reject(error)
+export const getRequest = async (url, params) => {
+    const headers = {};
+    const token = localStorage.getItem('token');
+    if (token) {
+        headers.Authorization = `Bearer ${token}`;
     }
-)
+
+    const response = await axios.get(url, {headers, ...params});
+    return response;
+}
+
+export const postRequest = async (url, params) => {
+    const headers = {};
+    const token = localStorage.getItem('token');
+    if (token) {
+        headers.Authorization = `Bearer ${token}`;
+    }
+
+    const response = await axios.post(url, params, {headers});
+    return response;
+}
 
 
-export const getProfile = async (city) => {
-    const res = await axios.get(`http://localhost/api/profile`)
+export const getProfile = async () => {
+    const res = await getRequest(`http://localhost/api/profile`)
     return res.data
 }
-
-//
-
-
-

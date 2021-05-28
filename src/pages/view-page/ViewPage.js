@@ -95,7 +95,7 @@ const ViewPage = ({match}) => {
 
                 </div>
             </div>
-            
+
 
             {place && activePaymentModal &&
             <PaymentModal active={activePaymentModal}
@@ -103,6 +103,14 @@ const ViewPage = ({match}) => {
                           title={place.listing.name}
                           id={place._id}
                           setActive={setActivePaymentModal}/>}
+
+            <button onClick={
+                () => {
+                    console.log(getProfile())
+                }
+            }>
+                Send
+            </button>
 
             <Footer/>
         </div>
