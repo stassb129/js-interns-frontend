@@ -11,17 +11,10 @@ import Delimiter from "../../components/delimiter/Delimiter";
 import Amenities from "../../components/view-page-components/amenities/Amenities";
 import ViewMap from "../../components/view-page-components/view-map/ViewMap";
 import GalleryContainer from "../../components/gallery/GalleryContainer";
-import PaymentModal from "../../components/payment-modal/PaymentModal";
-import {getProfile} from "../../api/api";
 
 const ViewPage = ({match}) => {
 
     const [place, setPlace] = useState(null)
-    // const [activePaymentModal, setActivePaymentModal] = useState(false)
-    //
-    // const modalHandler = () => {
-    //     setActivePaymentModal(!activePaymentModal)
-    // }
 
     useEffect(() => {
         getPlaceById(match.params.id).then(r => setPlace(r))
@@ -46,13 +39,8 @@ const ViewPage = ({match}) => {
                         reviewsCount={place.listing.reviewsCount}
                     />}
 
-
-                    {
-                        place &&
-                        <GalleryContainer pictures={place.listing.contextualPictures.map(e => e.picture)}/>
-
-                    }
-
+                    {place &&
+                    <GalleryContainer pictures={place.listing.contextualPictures.map(e => e.picture)}/>}
 
                     <div className={css.bookBlock}>
 
@@ -97,19 +85,6 @@ const ViewPage = ({match}) => {
 
                 </div>
             </div>
-            {/*    const [activePaymentModal, setActivePaymentModal] = useState(false)*/}
-
-            {/*    const modalHandler = () => {*/}
-            {/*    setActivePaymentModal(!activePaymentModal)*/}
-            {/*}*/}
-
-            {/*    {place && activePaymentModal &&*/}
-            {/*    <PaymentModal active={activePaymentModal}*/}
-            {/*                  amount={place.pricingQuote.rate.amount}*/}
-            {/*                  title={place.listing.name}*/}
-            {/*                  id={place._id}*/}
-            {/*                  setActive={setActivePaymentModal}/>}*/}
-
 
             <Footer/>
         </div>
@@ -117,20 +92,3 @@ const ViewPage = ({match}) => {
 }
 
 export default withRouter(ViewPage)
-
-//listing.bathrooms
-//listing.beds
-//listing.bedrooms
-//listing.guestLabel - guests
-//listing.hostThumbnailUrl
-//listing.user.firstName
-//listing.user.pictureUrl
-//listing.kickerContent.messages
-
-
-//listing.isBusinessTravelReady
-//listing.isNewListing
-//pricingQuote.canInstantBook
-//listing.isSuperhost
-
-//publicAddress

@@ -29,11 +29,6 @@ const BookPanel = ({price, rating, reviewsCount, amount, id, title}) => {
         setGuests(guests)
     }
 
-    console.log(
-        chekIn,
-        chekOut
-    )
-
     return (
         <div className={css.panel}>
             <div className={css.title}>
