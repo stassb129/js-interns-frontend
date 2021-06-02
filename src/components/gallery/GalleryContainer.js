@@ -5,22 +5,13 @@ import {useState} from "react";
 
 const GalleryModal = ({active, setActive, pictures}) => {
 
-    const IMAGES = pictures.map((e, index) => {
-            if (index % 2 === 0) {
-                return {
-                    src: `${e}`,
-                    thumbnail: `${e}`,
-                    thumbnailWidth: 320,
-
-                }
-            } else
-                return {
-                    src: `${e}`,
-                    thumbnail: `${e}`,
-                    thumbnailWidth: 320,
-                }
+    const IMAGES = pictures.map(e => (
+        {
+            src: `${e}`,
+            thumbnail: `${e}`,
+            thumbnailWidth: 320
         }
-    )
+    ))
     return (
         <div className={css.modal}>
             <div className={css.content}>

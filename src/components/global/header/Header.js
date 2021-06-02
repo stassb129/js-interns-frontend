@@ -1,5 +1,4 @@
 import css from './header.module.scss'
-import logo from '../../../images/logo.png'
 import Button from "../../button/Button"
 import {Link} from "react-router-dom"
 import SearchCities from "../../search-cities/SearchCities"
@@ -21,7 +20,7 @@ const HeaderSelect = () => {
         <div className={css.headerSelect}>
 
             <div className={css.select}>
-                    <SearchCities setEnterCity={setEnterCity}/>
+                <SearchCities setEnterCity={setEnterCity}/>
             </div>
 
             <div className={css.select}>
@@ -46,7 +45,7 @@ const Header = () => {
         <header className={css.headerContainer}>
             <div className={css.header}>
                 <Link to='/'>
-                    <img src={logo} alt="" className={css.logo}/>
+                    <img src='images/logo.png' alt="" className={css.logo}/>
                 </Link>
                 <HeaderSelect/>
                 <div className={css.profile}>

@@ -3,19 +3,7 @@ import WelcomeParallax from "../../components/welcome-parallax/WelcomeParallax"
 import WelcomeHeader from "../../components/global/welcome-header/WelcomeHeader"
 import Button from "../../components/button/Button"
 import SelectPanel from "../../components/select-panel/SelectPanel"
-import Footer from "../../components/global/footer/Footer";
-
-import hotel1 from '../../images/hotels/1.jpeg'
-import hotel2 from '../../images/hotels/2.jpeg'
-import hotel3 from '../../images/hotels/3.jpeg'
-import hotel4 from '../../images/hotels/4.jpeg'
-
-import los_angeles from '../../images/cities/los-angeles'
-import sun_francisco from '../../images/cities/sun-francisco'
-import miami from '../../images/cities/miami'
-import houston from '../../images/cities/houston.jpg'
-import new_york from '../../images/cities/new_york'
-
+import Footer from "../../components/global/footer/Footer"
 
 const WelcomePage = () => {
     return (
@@ -36,19 +24,19 @@ const WelcomePage = () => {
                 <h3 className={css.sectionHeader}>Top Rated</h3>
                 <div className={css.topRated}>
                     <div className={css.topItem}>
-                        <div style={{backgroundImage: `url(${hotel1})`}}
+                        <div style={{backgroundImage: `url(images/hotels/1.jpeg)`}}
                              className={css.itemPicture}></div>
                     </div>
                     <div className={css.topItem}>
-                        <div style={{backgroundImage: `url(${hotel2})`}}
+                        <div style={{backgroundImage: `url(images/hotels/2.jpeg)`}}
                              className={css.itemPicture}></div>
                     </div>
                     <div className={css.topItem}>
-                        <div style={{backgroundImage: `url(${hotel3})`}}
+                        <div style={{backgroundImage: `url(images/hotels/3.jpeg)`}}
                              className={css.itemPicture}></div>
                     </div>
                     <div className={css.topItem}>
-                        <div style={{backgroundImage: `url(${hotel4})`}}
+                        <div style={{backgroundImage: `url(images/hotels/4.jpeg)`}}
                              className={css.itemPicture}></div>
                     </div>
                 </div>
@@ -60,15 +48,15 @@ const WelcomePage = () => {
                 </h3>
                 <div className={css.gridMajorCities}>
                     <div className={css.sun_francisco}
-                         style={{backgroundImage: `url(${sun_francisco})`}}></div>
+                         style={{backgroundImage: `url(images/cities/sun_francisco)`}}></div>
                     <div className={css.houston}
-                         style={{backgroundImage: `url(${houston})`}}></div>
+                         style={{backgroundImage: `url(images/cities/houston.jpg)`}}></div>
                     <div className={css.los_angeles}
-                         style={{backgroundImage: `url(${los_angeles})`}}></div>
+                         style={{backgroundImage: `url(images/cities/los_angeles)`}}></div>
                     <div className={css.miami}
-                         style={{backgroundImage: `url(${miami})`}}></div>
+                         style={{backgroundImage: `url(images/cities/miami)`}}></div>
                     <div className={css.new_york}
-                         style={{backgroundImage: `url(${new_york})`}}></div>
+                         style={{backgroundImage: `url(images/cities/new_york)`}}></div>
                 </div>
             </section>
 

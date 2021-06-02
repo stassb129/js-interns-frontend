@@ -1,8 +1,8 @@
 import css from './homesPage.module.scss'
 import Header from "../../components/global/header/Header"
-import PlacesNear from "../../components/places-near/PlacesNear";
-import {useRef} from "react";
-import Map from "../../components/map/Map";
+import PlacesNear from "../../components/places-near/PlacesNear"
+import {useRef} from "react"
+import Map from "../../components/map/Map"
 
 const HomesPage = () => {
     const ref = useRef()

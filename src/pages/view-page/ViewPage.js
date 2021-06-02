@@ -6,11 +6,11 @@ import {getPlaceById} from "../../api/getPlaceById"
 import Title from "../../components/view-page-components/title/Title"
 import About from "../../components/view-page-components/about/About"
 import BookPanel from "../../components/book-panel/BookPanel"
-import Footer from "../../components/global/footer/Footer";
-import Delimiter from "../../components/delimiter/Delimiter";
-import Amenities from "../../components/view-page-components/amenities/Amenities";
-import ViewMap from "../../components/view-page-components/view-map/ViewMap";
-import GalleryContainer from "../../components/gallery/GalleryContainer";
+import Footer from "../../components/global/footer/Footer"
+import Delimiter from "../../components/delimiter/Delimiter"
+import Amenities from "../../components/view-page-components/amenities/Amenities"
+import ViewMap from "../../components/view-page-components/view-map/ViewMap"
+import GalleryContainer from "../../components/gallery/GalleryContainer"
 
 const ViewPage = ({match}) => {
 
