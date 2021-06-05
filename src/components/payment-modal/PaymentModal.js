@@ -5,7 +5,6 @@ import StripeCard from "../stripe-card/StripeCard";
 import Modal from "../modal/Modal";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
-console.log(process.env)
 
 const PaymentModal = ({active, setActive, amount, id, title, chekIn, checkOut, guests}) => {
 
